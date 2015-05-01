@@ -8,8 +8,6 @@ put units on shore nearby in ship overflow / spawn rubber boats?
 
 handle _unit is vehicle?
 
-add optional direction and arc parameter to ranpos function, primarily to avoid spawning people in front of vehicles
-
 findsafepos(0.105796 msca) or findemptypos (0.0046875 ms)
 	
 handle _dest is inside building?
@@ -51,30 +49,32 @@ _vehpostype = ["driver","gunner","commander","cargo"];
 
 _ranpos = {
 
-	private ["_center", "_max", "_min", "_random"];
-	_pos = _this select 0;
-	_max = _this select 1;
-	_random = random 360;
-	if (count _this > 2) then
-	{
-		_min = _this select 2;
-	}
-	else
-	{
-		_min = 0;
+	private ["_pos", "_max", "_min", "_dir", "_arc", "_random"];
+	
+	switch (count _this) do {
+	    case 1 : {_center = _this select 0; _max = 0; _min = 0; _dir = 0; _arc = 0;};
+	    case 2 : {_center = _this select 0; _max = _this select 1; _min = 0; _dir = 0; _arc = 0;};
+	    case 3 : {_center = _this select 0; _max = _this select 1; _min = _this select 2; _dir = 0; _arc = 0;};
+	    case 4 : {_center = _this select 0; _max = _this select 1; _min = _this select 2; _dir = _this select 3; _arc = 180;};
+	    case 5 : {_center = _this select 0; _max = _this select 1; _min = _this select 2; _dir = _this select 3; _arc = _this select 4;};
+	    default {systemchat "ranpos - missing/too many params";};
 	};
 	
-	[(_pos select 0) + (_max + _min - random (_max + 1)) * (sin (_random)),
-	(_pos select 1) + (_max + _min - random (_max + 1)) * (cos (_random))]
+	_random = 0.5 * _arc + random (360 - _arc) + _dir;
+   
+	[
+	(_pos select 0) + (_max + _min - random (_max + 1)) * (sin (_random)),
+	(_pos select 1) + (_max + _min - random (_max + 1)) * (cos (_random))
+	]
 
 };
-
+/*
 //vehicle handling
 if (_unit iskindof "landvehicle" || _unit iskindof "air") then
 {
 	//paste and modify man handling switch
 };
-
+*/
 //man handling
 switch (typename _dest) do
 {
@@ -91,7 +91,7 @@ switch (typename _dest) do
 	case "GROUP" : 
 	{
 		moveout _unit;
-		_unit setpos ([getpos (leader _dest), 10] call _ranpos); //formationpos not usable unless group merge
+		_unit setpos ([getpos (leader _dest), 10, 0, getdir (leader _dest)] call _ranpos); //formationpos not usable unless group merge
 	}; 
 	case "OBJECT" : 
 	{
@@ -99,7 +99,7 @@ switch (typename _dest) do
 		if (_dest iskindof "man") then
 		{
 			moveout _unit;
-			_unit setpos ([getpos _dest, 10, 1] call _ranpos);
+			_unit setpos ([getpos _dest, 10, 1, getdir _dest] call _ranpos);
 		};
 		
 		if (_dest iskindof "emptydetector") then
@@ -147,7 +147,8 @@ switch (typename _dest) do
 					[
 						getpos _dest, 
 						sizeof (typeof _dest) * 0.5 + 3, 
-						sizeof (typeof _dest) * 0.5 + 2 //keeps units from spawning in tailrotors
+						sizeof (typeof _dest) * 0.5 + 2, //keeps units from spawning in tailrotors
+						getdir _dest, //dont put units in front of vehicles
 					] call _ranpos);
 			};
 			//systemchat format["deployunit - while end : vehpos %1, _i %2", _vehpos, _i];		
