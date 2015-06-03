@@ -1,10 +1,33 @@
 /* 
+[<man, group, or array of men or groups>, <position, group, man, vehicle, marker(string), or trigger>] execvm "deployUnit.sqf"
 
-[<man, group, or array of men or groups>, <position, group, man, vehicle, marker, or trigger>] execvm "deployUnit.sqf"
+sends <unit(s)> to <destination>, handling different destination types:
+
+position - moves unit to random position within 10m of given destination position
+man - moves unit to position 1-10m away, excluding 180 degree arc in front of destination man
+group - same as man for destination group leader
+vehicle - populates destination vehicle in priority: driver, gunner, commander, cargo
+          overflow is randomly placed [radius = largest veh dimension + 1m] away from vehicle
+          random placement excludes front 180 degrees relative to vehicle
+marker - same as position for marker center
+trigger - places unit randomly within [radius = smallest trigger dimension] of trigger center
+
+mainly intended for deploying players from briefing to mission area / insertion points, or slightly more elegant tping i guess
+
+use proper destinations, i do not currently intend to handle fetching guaranteed safe positions
+
+multiple units handled recursively
+
 
 to do: 
-	
-put units on shore nearby in ship overflow / spawn rubber boats?
+
+accomodate player namespace variable for pre-assigned / player chosen vehicle positions
+
+copilot position doesnt have a vehicleposition id, currently fills after commander & before cargo ('any')	
+
+handle non-icon markers / zones
+
+put units on shore nearby in ship overflow?
 
 handle _unit is vehicle?
 
@@ -159,7 +182,7 @@ switch (typename _dest) do
 		if (_dest in allmapmarkers) then
 		{
 			moveout _unit;
-			_unit setpos getmarkerpos _dest; //need safe pos
+                        _unit setpos ([getmarkerpos _dest, 10] call _ranpos);
 		}
 		else
 		{
