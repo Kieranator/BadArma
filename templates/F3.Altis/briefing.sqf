@@ -1,3 +1,6 @@
+
+// F3 BRIEFING GENERATOR: http://www.ferstaberinde.com/f3/f3webtools/index.php
+
 // F3 - Briefing
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 // ====================================================================================

@@ -340,9 +340,9 @@ if (_isMan) then {
 // Include the correct backpack file for the faction
 
 _backpack = {
-	_typeofBackPack = _this select 0;
-	_loadout = f_param_backpacks;
-	if (count _this > 1) then {_loadout = _this select 1};
+	_typeofBackPack = _this select 0; // _loadout var now handled in fn_assignGear.sqf
+//	_loadout = f_param_backpacks;
+	if (count _this > 1) then {_loadout = _this select 1}; // {["g", <pack size>] call _backpack;} to override unit init
 	switch (_typeofBackPack) do
 	{
 		#include "f_assignGear_csat_b.sqf";

@@ -129,16 +129,21 @@ class Params
 // ============================================================================================
 
 // F3 - Folk Assign Gear Script
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
- //remove this pile & integrate hh's generated scripts
-    class f_param_backpacks
-    {
-            title = "Autism Level - INTEGRATE HH SCRIPT AND REMOVE THIS PILE";
-            values[] = {0,1,2};
-            texts[] = {"Light","Medium","Heavy"};
-            default = 1;
-            code = "f_param_backpacks = %1"; //var used in medical\AGM_clientInit.sqf, assignGear\[aaf, csat, fia, nato]
-    };
+// Credits: Please see the F2 online manual (http://www.ferstaberinde.com/f3/en/)
+// Parameter Removed - default set in f\assignGear\fn_assignGear.sqf, _loadout
+
+/*
+	sets equipment load. currently, new syntax is:
+
+	["co",this,"blu_f", 2 ] call f_fnc_assignGear;
+	
+	0 light, 1 medium (default), 2 heavy, 3+ guarantees no gear
+	negative values may result in light equip, depending on class
+	light often adds more gear without adding a backpack
+
+	["co",this] call f_fnc_assignGear;
+	functions, but will always give a medium equip load
+*/
 
 // ============================================================================================
 
@@ -350,7 +355,7 @@ class CfgFunctions
 		};
 		class assignGear
 		{
-			// Defines the functions to preInit the compling of the assignGear function used by units.
+			// Defines the functions to preInit the compiling of the assignGear function used by units.
 			file = "f\assignGear";
 			class assignGear{};
 		};
@@ -407,14 +412,6 @@ class CfgFunctions
 		{
 			file = "f\safeStart";
 			class safety{};
-		};
-	};
-	
-	class BG
-	{
-		class common
-		{
-			
 		};
 	};
 };
