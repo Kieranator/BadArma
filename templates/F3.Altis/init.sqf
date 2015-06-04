@@ -41,10 +41,7 @@ f_script_setGroupIDs = [] execVM "f\setGroupID\f_setGroupIDs.sqf";
 // ====================================================================================
 
 // F3 - Buddy Team Colours
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-f_script_setTeamColours = [] execVM "f\setTeamColours\f_setTeamColours.sqf";
-
+// Removed
 // ====================================================================================
 
 // F3 - Fireteam Member Markers
@@ -164,17 +161,11 @@ f_var_cachingAggressiveness = 2;
 
 // F3 - Radio Systems Support
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-[] execVM "f\radios\radio_init.sqf";
+// does the modset handle this?
+[] execVM "f\radios\acre2\acre2_init.sqf";
 
 // ====================================================================================
 
 // F3 - Medical Systems Support
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-// SWS Config Settings
-// Removed
-
-[] execVM "f\medical\medical_init.sqf";
-
+// Removed, handled by modset
 // ====================================================================================

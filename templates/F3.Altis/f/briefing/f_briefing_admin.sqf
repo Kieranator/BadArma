@@ -52,7 +52,7 @@ while {true} do {
 
 _briefing = _briefing + "
 <font size='18'>ENDINGS</font><br/>
-These endings are available. To trigger an ending click on its link.<br/><br/>
+To trigger an ending click on its link.<br/><br/>
 ";
 
 {

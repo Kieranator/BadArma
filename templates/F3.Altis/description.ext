@@ -32,12 +32,8 @@ enableDebugConsole = 1;
 
 // F3 - Respawn Settings
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-respawn = 1;
-respawndelay = 3;
-respawnOnStart = 0;
-respawnTemplates[] = {"Seagull","f_spectator","f_JIP"};
-
+// Removed
+respawn = "GROUP";
 // ============================================================================================
 
 
@@ -86,14 +82,7 @@ class cfgNotifications
 		priority = 1;
 	};
 
-	// Notification for the F3 Authorised Crew Component
-	class UnauthorisedCrew {
-		title= "NON-AUTHORISED CREW!";
-		description= "%1";
-		iconPicture = "\A3\ui_f\data\map\markers\military\warning_ca.paa";
-		duration = 3;
-		priority = 5;
-	};
+	// Notification for the F3 Authorised Crew Component REMOVED
 
 	// Notification for the F3 Mapclick Teleport component
 	class MapClickTeleport {
@@ -154,31 +143,11 @@ class Params
 // ============================================================================================
 
 // F3 - Radio Systems Support
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-    class f_param_radios
-    {
-            title = "Radio System";
-            values[] = {3};
-            texts[] = {"ACRE2"};
-            default = 3; 
-            code = "f_var_radios = %1"; //var used in radios\radio_init, spect\[caminit,eventhandler]
-    };//can't start acre2init here, would call under current system, needs execvm
-
+// Removed
 // ============================================================================================
 
 // F3 - Medical Systems Support
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-    class f_param_medical
-    {
-            title = "Medical System";
-            values[] = {2};
-            texts[] = {"Authentic Gameplay Mod"};
-            default = 2;
-            code = "f_var_medical = %1"; // var used in \medical\medical_init, assignGear\[aaf,csat,fia,nato]
-    }; //similar issue to radios
-
+// Removed
 // ============================================================================================
 
 // F3 - Mission Timer/Safe Start
@@ -321,27 +290,19 @@ class CfgDebriefing
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};
-	};
-
+	};	
 };
 
 // ============================================================================================
 
 // F3 - Respawn Templates
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-// unsure if this is needed
 class CfgRespawnTemplates
 {
-	// F3 Spectator Script
-/*	class f_Spectator
-	{
-		onPlayerRespawn = "f_fnc_CamInit";
-	};*/
-  	//Overwrite Vanilla Seagull
-    class Seagull
-    {
-        onPlayerRespawn = "";
-    };
+	// F3 Spectator Script REMOVED
+
+  	// Overwrite Vanilla Seagull REMOVED
+
 	// F3 JIP Menu
 	class f_JIP
 	{
@@ -446,6 +407,14 @@ class CfgFunctions
 		{
 			file = "f\safeStart";
 			class safety{};
+		};
+	};
+	
+	class BG
+	{
+		class common
+		{
+			
 		};
 	};
 };
