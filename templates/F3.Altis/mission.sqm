@@ -22,7 +22,6 @@ class Mission
 		"A3_Armor_F_T100K",
 		"a3_map_altis",
 		"a3_armor_f_epb_mbt_03",
-		"a3_air_f_epb_heli_light_03",
 		"A3_Soft_F_TruckHeavy",
 		"A3_Soft_F_MRAP_03",
 		"A3_Soft_F_MRAP_01",
@@ -41,7 +40,9 @@ class Mission
 		"A3_Air_F_Heli_Heli_Transport_03",
 		"A3_Air_F_Heli_Heli_Transport_04",
 		"A3_Air_F_Heli_Heli_Light_01",
-		"a3_air_f_heli_light_01"
+		"a3_air_f_heli_light_01",
+		"lop_c_men",
+		"SUD_RUSSIANS"
 	};
 	addOnsAuto[]=
 	{
@@ -50,6 +51,7 @@ class Mission
 		"A3_Characters_F_Gamma",
 		"A3_Characters_F_OPFOR",
 		"A3_Characters_F_INDEP",
+		"lop_c_men",
 		"A3_Characters_F_Civil",
 		"A3_Modules_F",
 		"A3_Air_F_Heli_Heli_Transport_03",
@@ -65,7 +67,6 @@ class Mission
 		"A3_Armor_F_APC_Wheeled_03",
 		"A3_Armor_F_T100K",
 		"A3_Armor_F_EPB_MBT_03",
-		"A3_Air_F_EPB_Heli_Light_03",
 		"A3_Soft_F_TruckHeavy",
 		"A3_Soft_F_MRAP_03",
 		"A3_Soft_F_MRAP_01",
@@ -79,6 +80,7 @@ class Mission
 		"a3_weapons_f_ammoboxes",
 		"A3_Air_F_Heli_Heli_Light_01",
 		"a3_air_f_heli_light_01",
+		"SUD_RUSSIANS",
 		"a3_map_altis"
 	};
 	randomSeed=11823142;
@@ -4702,7 +4704,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={9010.8945,10.303437,7999.5591};
+					position[]={9501.7979,50.439014,7912.4927};
 					id=295;
 					side="CIV";
 					vehicle="C_man_polo_1_F";
@@ -4722,7 +4724,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={9018.0859,10.493487,7999.3169};
+					position[]={9508.9893,50.394512,7912.2505};
 					id=296;
 					side="CIV";
 					vehicle="C_man_polo_2_F";
@@ -8049,363 +8051,364 @@ class Mission
 		};
 		class Item49
 		{
-			position[]={8986.2939,17.445082,7889.5981};
-			id=522;
-			side="EMPTY";
-			vehicle="I_Heli_light_03_F";
-			leader=1;
-			skill=0.60000002;
-			text="VehAAF_AH1";
-		};
-		class Item50
-		{
 			position[]={9013.5371,14.826186,7966.4902};
-			id=523;
+			id=522;
 			side="EMPTY";
 			vehicle="I_Truck_02_transport_F";
 			skill=0.60000002;
 			text="VehAAF_TR1";
 			init="[""v_tr"",this] call f_fnc_assignGear";
 		};
-		class Item51
+		class Item50
 		{
 			position[]={9039.873,15.790504,7966.6719};
-			id=524;
+			id=523;
 			side="EMPTY";
 			vehicle="I_Truck_02_transport_F";
 			skill=0.60000002;
 			text="VehAAF_TR2";
 			init="[""v_tr"",this] call f_fnc_assignGear";
 		};
-		class Item52
+		class Item51
 		{
 			position[]={9064.2266,14.412301,7967.5723};
-			id=525;
+			id=524;
 			side="EMPTY";
 			vehicle="I_Truck_02_transport_F";
 			skill=0.60000002;
 			text="VehAAF_TR3";
 			init="[""v_tr"",this] call f_fnc_assignGear";
 		};
-		class Item53
+		class Item52
 		{
 			position[]={8983.9248,15.64678,7950.4731};
-			id=526;
+			id=525;
 			side="EMPTY";
 			vehicle="I_MRAP_03_F";
 			skill=0.60000002;
 			text="VehAAF_CAR1";
 			init="[""v_car"",this] call f_fnc_assignGear";
 		};
-		class Item54
+		class Item53
 		{
 			position[]={8726.1416,30.961126,7448.9727};
-			id=527;
+			id=526;
 			side="EMPTY";
 			vehicle="B_MRAP_01_F";
 			skill=0.60000002;
 			text="VehNato_CAR1";
 			init="[""v_car"",this] call f_fnc_assignGear";
 		};
-		class Item55
+		class Item54
 		{
 			position[]={8761.1963,31.37002,7465.7734};
-			id=528;
+			id=527;
 			side="EMPTY";
 			vehicle="B_Truck_01_transport_F";
 			skill=0.60000002;
 			text="VehNato_TR1";
 			init="[""v_tr"",this] call f_fnc_assignGear";
 		};
-		class Item56
+		class Item55
 		{
 			position[]={8784.8164,39.551926,7464.3965};
-			id=529;
+			id=528;
 			side="EMPTY";
 			vehicle="B_Truck_01_transport_F";
 			skill=0.60000002;
 			text="VehNato_TR2";
 			init="[""v_tr"",this] call f_fnc_assignGear";
 		};
-		class Item57
+		class Item56
 		{
 			position[]={8808.665,43.570007,7465.541};
-			id=530;
+			id=529;
 			side="EMPTY";
 			vehicle="B_Truck_01_transport_F";
 			skill=0.60000002;
 			text="VehNato_TR3";
 			init="[""v_tr"",this] call f_fnc_assignGear";
 		};
-		class Item58
+		class Item57
 		{
 			position[]={9439.3018,31.435173,8469.2188};
-			id=531;
+			id=530;
 			side="EMPTY";
 			vehicle="O_MRAP_02_F";
 			skill=0.60000002;
 			text="VehCSAT_CAR1";
 			init="[""v_car"",this] call f_fnc_assignGear";
 		};
-		class Item59
+		class Item58
 		{
 			position[]={9474.915,27.556665,8485.8066};
-			id=532;
+			id=531;
 			side="EMPTY";
 			vehicle="O_Truck_03_transport_F";
 			skill=0.60000002;
 			text="VehCSAT_TR1";
 			init="[""v_tr"",this] call f_fnc_assignGear";
 		};
-		class Item60
+		class Item59
 		{
 			position[]={9497.8467,25.495405,8485.5781};
-			id=533;
+			id=532;
 			side="EMPTY";
 			vehicle="O_Truck_03_transport_F";
 			skill=0.60000002;
 			text="VehCSAT_TR2";
 			init="[""v_tr"",this] call f_fnc_assignGear";
 		};
-		class Item61
+		class Item60
 		{
 			position[]={9523.7607,25.053005,8486.0352};
-			id=534;
+			id=533;
 			side="EMPTY";
 			vehicle="O_Truck_03_transport_F";
 			skill=0.60000002;
 			text="VehCSAT_TR3";
 			init="[""v_tr"",this] call f_fnc_assignGear";
 		};
-		class Item62
+		class Item61
 		{
 			position[]={9141.0361,28.603195,7655.6348};
-			id=535;
+			id=534;
 			side="EMPTY";
 			vehicle="B_G_Offroad_01_F";
 			skill=0.60000002;
 			text="VehFIA_CAR0";
 			init="[""v_car"",this] call f_fnc_assignGear";
 		};
-		class Item63
+		class Item62
 		{
 			position[]={9159.1523,27.706772,7658.6982};
-			id=536;
+			id=535;
 			side="EMPTY";
 			vehicle="B_G_Offroad_01_F";
 			skill=0.60000002;
 			text="VehFIA_CAR1";
 			init="[""v_car"",this] call f_fnc_assignGear";
 		};
-		class Item64
+		class Item63
 		{
 			position[]={9186.1133,26.757771,7658.9844};
-			id=537;
+			id=536;
 			side="EMPTY";
 			vehicle="B_G_Offroad_01_F";
 			skill=0.60000002;
 			text="VehFIA_CAR2";
 			init="[""v_car"",this] call f_fnc_assignGear";
 		};
-		class Item65
+		class Item64
 		{
 			position[]={9212.0791,25.977043,7655.293};
-			id=538;
+			id=537;
 			side="EMPTY";
 			vehicle="B_G_Offroad_01_F";
 			skill=0.60000002;
 			text="VehFIA_CAR3";
 			init="[""v_car"",this] call f_fnc_assignGear";
 		};
-		class Item66
+		class Item65
 		{
 			position[]={9168.3057,27.264048,7657.7285};
-			id=539;
+			id=538;
 			side="EMPTY";
 			vehicle="B_G_Van_01_transport_F";
 			skill=0.60000002;
 			text="VehFIA_TR1";
 			init="[""v_tr"",this] call f_fnc_assignGear";
 		};
-		class Item67
+		class Item66
 		{
 			position[]={9191.5898,26.466537,7657.5371};
-			id=540;
+			id=539;
 			side="EMPTY";
 			vehicle="B_G_Van_01_transport_F";
 			skill=0.60000002;
 			text="VehFIA_TR2";
 			init="[""v_tr"",this] call f_fnc_assignGear";
 		};
-		class Item68
+		class Item67
 		{
 			position[]={9217.2725,25.858288,7655.6924};
-			id=541;
+			id=540;
 			side="EMPTY";
 			vehicle="B_G_Van_01_transport_F";
 			skill=0.60000002;
 			text="VehFIA_TR3";
 			init="[""v_tr"",this] call f_fnc_assignGear";
 		};
-		class Item69
+		class Item68
 		{
 			position[]={8982.0137,15.762132,7935.9849};
-			id=542;
+			id=541;
 			side="EMPTY";
 			vehicle="I_MRAP_03_F";
 			skill=0.60000002;
 			text="VehAAF_CAR2";
 			init="[""v_car"",this] call f_fnc_assignGear";
 		};
-		class Item70
+		class Item69
 		{
 			position[]={9438.2119,30.456455,8450.5078};
-			id=543;
+			id=542;
 			side="EMPTY";
 			vehicle="O_MRAP_02_F";
 			skill=0.60000002;
 			text="VehCSAT_CAR2";
 			init="[""v_car"",this] call f_fnc_assignGear";
 		};
-		class Item71
+		class Item70
 		{
 			position[]={8726.1406,34.368927,7432.4902};
-			id=544;
+			id=543;
 			side="EMPTY";
 			vehicle="B_MRAP_01_F";
 			skill=0.60000002;
 			text="VehNato_CAR2";
 			init="[""v_car"",this] call f_fnc_assignGear";
 		};
-		class Item72
+		class Item71
 		{
 			position[]={9013.8438,16.028761,7954.1348};
-			id=545;
+			id=544;
 			side="EMPTY";
 			vehicle="I_supplyCrate_F";
 			skill=0.60000002;
 			text="CrateAAF_A";
 			init="[""crate_med"",this,""ind_f""] call f_fnc_assignGear";
 		};
-		class Item73
+		class Item72
 		{
 			position[]={9037.918,15.556493,7954.9316};
-			id=546;
+			id=545;
 			side="EMPTY";
 			vehicle="I_supplyCrate_F";
 			skill=0.60000002;
 			text="CrateAAF_B";
 			init="[""crate_med"",this,""ind_f""] call f_fnc_assignGear";
 		};
-		class Item74
+		class Item73
 		{
 			position[]={9064.6895,15.240308,7955.7266};
-			id=547;
+			id=546;
 			side="EMPTY";
 			vehicle="I_supplyCrate_F";
 			skill=0.60000002;
 			text="CrateAAF_C";
 			init="[""crate_med"",this,""ind_f""] call f_fnc_assignGear";
 		};
-		class Item75
+		class Item74
 		{
 			position[]={8757.7734,32.436661,7453.9668};
-			id=548;
+			id=547;
 			side="EMPTY";
 			vehicle="B_supplyCrate_F";
 			skill=0.60000002;
 			text="CrateNATO_A";
 			init="[""crate_med"",this,""blu_f""] call f_fnc_assignGear";
 		};
-		class Item76
+		class Item75
 		{
 			position[]={8784.0957,42.715,7452.0195};
-			id=549;
+			id=548;
 			side="EMPTY";
 			vehicle="B_supplyCrate_F";
 			skill=0.60000002;
 			text="CrateNATO_B";
 			init="[""crate_med"",this,""blu_f""] call f_fnc_assignGear";
 		};
-		class Item77
+		class Item76
 		{
 			position[]={8809.793,46.490028,7452.1738};
-			id=550;
+			id=549;
 			side="EMPTY";
 			vehicle="B_supplyCrate_F";
 			skill=0.60000002;
 			text="CrateNATO_C";
 			init="[""crate_med"",this,""blu_f""] call f_fnc_assignGear";
 		};
-		class Item78
+		class Item77
 		{
 			position[]={9471.5713,27.19183,8471.6191};
-			id=551;
+			id=550;
 			side="EMPTY";
 			vehicle="O_supplyCrate_F";
 			skill=0.60000002;
 			text="CrateCSAT_A";
 			init="[""crate_med"",this,""opf_f""] call f_fnc_assignGear";
 		};
-		class Item79
+		class Item78
 		{
 			position[]={9498.4385,25.848902,8472.1445};
-			id=552;
+			id=551;
 			side="EMPTY";
 			vehicle="O_supplyCrate_F";
 			skill=0.60000002;
 			text="CrateCSAT_B";
 			init="[""crate_med"",this,""opf_f""] call f_fnc_assignGear";
 		};
-		class Item80
+		class Item79
 		{
 			position[]={9524.3428,25.344168,8471.2656};
-			id=553;
+			id=552;
 			side="EMPTY";
 			vehicle="O_supplyCrate_F";
 			skill=0.60000002;
 			text="CrateCSAT_C";
 			init="[""crate_med"",this,""opf_f""] call f_fnc_assignGear";
 		};
-		class Item81
+		class Item80
 		{
 			position[]={9164.9561,26.019739,7644.2324};
-			id=554;
+			id=553;
 			side="EMPTY";
 			vehicle="IG_supplyCrate_F";
 			skill=0.60000002;
 			text="CrateFIA_A";
 			init="[""crate_med"",this,""blu_g_f""] call f_fnc_assignGear";
 		};
-		class Item82
+		class Item81
 		{
 			position[]={9190.2354,24.966057,7644.6465};
-			id=555;
+			id=554;
 			side="EMPTY";
 			vehicle="IG_supplyCrate_F";
 			skill=0.60000002;
 			text="CrateFIA_B";
 			init="[""crate_med"",this,""blu_g_f""] call f_fnc_assignGear";
 		};
-		class Item83
+		class Item82
 		{
 			position[]={9213.167,24.076477,7643.4014};
-			id=556;
+			id=555;
 			side="EMPTY";
 			vehicle="IG_supplyCrate_F";
 			skill=0.60000002;
 			text="CrateFIA_C";
 			init="[""crate_med"",this,""blu_g_f""] call f_fnc_assignGear";
 		};
-		class Item84
+		class Item83
 		{
 			position[]={9249.1543,19.799109,7530.6592};
-			id=557;
+			id=556;
 			side="EMPTY";
 			vehicle="C_Heli_Light_01_civil_F";
 			leader=1;
 			skill=0.60000002;
 			text="VehFIA_TH1";
+		};
+		class Item84
+		{
+			position[]={8984.4893,17.269625,7890.877};
+			id=557;
+			side="EMPTY";
+			vehicle="SUD_MI48_RU";
+			leader=1;
+			skill=0.60000002;
+			text="VehAAF_AH1";
+			description="AAF Attack Helo 1 Pilot";
 		};
 	};
 	class Markers

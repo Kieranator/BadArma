@@ -13,7 +13,7 @@ _typeOfUnit = player getVariable "f_var_assignGear";
 {player removeItems _x} forEach ["FirstAidKit","Medikit","AGM_Bandage","AGM_Morphine","AGM_Epipen","AGM_Bloodbag"];
 
 // Add basic items to all units
-player addItem "AGM_EarBuds";
+/*player addItem "AGM_EarBuds";
 {player addItem "AGM_Bandage"} forEach [1,2,3,4,5];
 player addItem "AGM_Morphine";
 
@@ -34,4 +34,4 @@ if (_typeOfUnit == "m") then
 		(unitBackpack player) addItemCargoGlobal ["AGM_Epipen",   15];
 		(unitBackpack player) addItemCargoGlobal ["AGM_Bloodbag", 4];
 	};
-};
+};*/
