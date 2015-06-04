@@ -48,10 +48,7 @@ f_script_setTeamColours = [] execVM "f\setTeamColours\f_setTeamColours.sqf";
 // ====================================================================================
 
 // F3 - Fireteam Member Markers
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-[] spawn f_fnc_SetLocalFTMemberMarkers;
-
+// Removed
 // ====================================================================================
 
 // F3 - F3 Folk ARPS Group Markers
@@ -81,24 +78,11 @@ if(isServer) then {
 // ====================================================================================
 
 // F3 - Dynamic View Distance
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-// f_var_viewDistance_default = 1250;
-// f_var_viewDistance_tank = 2000;
-// f_var_viewDistance_car = 2000;
-// f_var_viewDistance_rotaryWing = 2500;
-// f_var_viewDistance_fixedWing = 5000;
-// f_var_viewDistance_crewOnly = true;
-// [] execVM "f\dynamicViewDistance\f_setViewDistanceLoop.sqf";
-
+// Removed
 // ====================================================================================
 
 // F3 - Authorised Crew Check
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-// VehicleName addEventhandler ["GetIn", {[_this,[UnitName1,UnitName2],false] call f_fnc_authorisedCrewCheck}];
-// VehicleName addEventhandler ["GetIn", {[_this,["UnitClass1","UnitClass2"],false] call f_fnc_authorisedCrewCheck}];
-
+// Removed
 // ====================================================================================
 
 // F3 - Casualties Cap
@@ -119,54 +103,34 @@ if(isServer) then {
 // ====================================================================================
 
 // F3 - AI Skill Selector
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-// f_var_civAI = independent; 		// Optional: The civilian AI will use this side's settings
-// [] execVM "f\setAISKill\f_setAISkill.sqf";
-
+// Removed
 // ====================================================================================
 
 // F3 - Assign Gear AI
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
+// ...pending removal? gear system rework
 // [] execVM "f\assignGear\f_assignGear_AI.sqf";
 
 // ====================================================================================
 
 // F3 - Name Tags
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-// [] execVM "f\nametag\f_nametags.sqf";
-
+// Removed
 // ====================================================================================
 
 // F3 - Group E&E Check
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-// [side,ObjectName or "MarkerName",100,1] execVM "f\EandEcheck\f_EandECheckLoop.sqf";
-// [["Grp1","Grp2"],ObjectName or "MarkerName",100,1] execVM "f\EandEcheck\f_EandECheckLoop.sqf";
-
+// Removed
 // ====================================================================================
 
 // F3 - ORBAT Notes
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-[] execVM "f\briefing\f_orbatNotes.sqf";
-
+// Removed
 // ====================================================================================
 
 // F3 - Loadout Notes
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-[] execVM "f\briefing\f_loadoutNotes.sqf";
-
+// Removed
 // ====================================================================================
 
 // F3 - Join Group Action
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-[false] execVM "f\groupJoin\f_groupJoinAction.sqf";
-
+// Removed
 // ====================================================================================
 
 // F3 - Mission Timer/Safe Start
@@ -209,8 +173,7 @@ f_var_cachingAggressiveness = 2;
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
 // SWS Config Settings
-// How many extra FirstAidKits (FAKS) each player should receive when using the F3 Simple Wounding System:
-f_wound_extraFAK = 2;
+// Removed
 
 [] execVM "f\medical\medical_init.sqf";
 
