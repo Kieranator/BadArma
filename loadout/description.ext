@@ -1,12 +1,9 @@
-//----------------------------------------------------------
-//YOU NEED TO COPY PASTE THIS INTO YOUR REAL DESCRIPTION.EXT
-//----------------------------------------------------------
 class CfgFunctions {
 	class bg
 	{
 		class common
 		{
-			class InitLoadouts {file = "initLoad.sqf";};
+			class InitLoadouts {file = "initLoadLite.sqf";};
 		};
 	};
 };
