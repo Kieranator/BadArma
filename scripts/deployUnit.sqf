@@ -21,7 +21,10 @@ multiple units handled recursively
 
 to do: 
 
+
 accomodate player namespace variable for pre-assigned / player chosen vehicle positions
+	look into replacing this pile with stuff from f3 premount or scrap it in favor of moveinany
+	starting to push outside scope, other people have already done this shit better
 
 copilot position doesnt have a vehicleposition id, currently fills after commander & before cargo ('any')	
 
