@@ -1,0 +1,711 @@
+version=12;
+class Mission
+{
+	addOns[]=
+	{
+		"A3_Characters_F_BLUFOR",
+		"a3_characters_f",
+		"A3_Characters_F_OPFOR",
+		"a3_map_stratis"
+	};
+	addOnsAuto[]=
+	{
+		"A3_Characters_F_BLUFOR",
+		"a3_characters_f",
+		"A3_Characters_F_OPFOR",
+		"a3_map_stratis"
+	};
+	randomSeed=12287209;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=7;
+		day=6;
+		hour=12;
+		minute=0;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+	class Groups
+	{
+		items=5;
+		class Item0
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={2168.0786,8.8968172,5319.2559};
+					azimut=3.3376;
+					special="NONE";
+					id=0;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""r"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item1
+				{
+					position[]={2169.7747,8.8980799,5317.6343};
+					azimut=3.3376;
+					special="NONE";
+					id=1;
+					side="WEST";
+					vehicle="B_medic_F";
+					rank="SERGEANT";
+					skill=0.60000002;
+					text="u24";
+					init="[""m"",this,1] call bg_fnc_initloadouts;";
+					description="Medic";
+				};
+				class Item2
+				{
+					position[]={2166.5264,8.9642506,5317.7358};
+					azimut=3.3376;
+					special="NONE";
+					id=2;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""r"",this,0] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item3
+				{
+					position[]={2167.27,8.9611025,5317.7681};
+					azimut=3.3376;
+					special="NONE";
+					id=3;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""r"",this,0] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item4
+				{
+					position[]={2168.6282,8.9822826,5316.604};
+					azimut=3.3376;
+					special="NONE";
+					id=4;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""at"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item5
+				{
+					position[]={2169.6306,8.9395361,5316.7329};
+					azimut=3.3376;
+					special="NONE";
+					id=5;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""aat"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item6
+				{
+					position[]={2170.6975,8.8969297,5316.7979};
+					azimut=3.3376;
+					special="NONE";
+					id=6;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""mg"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item7
+				{
+					position[]={2171.8293,8.8709278,5316.8623};
+					azimut=3.3376;
+					special="NONE";
+					id=7;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""amg"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item8
+				{
+					position[]={2173.2195,8.8135271,5316.9277};
+					azimut=3.3376;
+					special="NONE";
+					id=8;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""sn"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item9
+				{
+					position[]={2175.3215,8.724865,5316.96};
+					azimut=3.3376;
+					special="NONE";
+					id=9;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""ftl"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+			};
+		};
+		class Item1
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2167.9814,8.9593239,5317.7681};
+					azimut=3.3376;
+					special="NONE";
+					id=10;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""r"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+			};
+		};
+		class Item2
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={2013.5643,6.4349942,5786.3315};
+					azimut=112.14436;
+					special="NONE";
+					id=11;
+					side="EAST";
+					vehicle="O_medic_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""m"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item1
+				{
+					position[]={2014.4812,6.1070848,5774.9668};
+					azimut=112.14436;
+					special="NONE";
+					id=12;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					leader=1;
+					rank="MAJOR";
+					skill=0.60000002;
+					init="[""ftl"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item2
+				{
+					position[]={2001.8906,6.2342067,5783.7231};
+					azimut=112.14436;
+					special="NONE";
+					id=13;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""rpg"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item3
+				{
+					position[]={1997.166,6.1056032,5780.4302};
+					azimut=112.14436;
+					special="NONE";
+					id=14;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""r"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item4
+				{
+					position[]={1998.6442,6.2038407,5788.5796};
+					azimut=112.14436;
+					special="NONE";
+					id=15;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""rpgc"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item5
+				{
+					position[]={2004.8124,6.4646707,5794.4092};
+					azimut=112.14436;
+					special="NONE";
+					id=16;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""mg"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item6
+				{
+					position[]={1999.9624,6.0019164,5772.127};
+					azimut=112.14436;
+					special="NONE";
+					id=17;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""eng"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item7
+				{
+					position[]={2003.8361,6.4753475,5797.478};
+					azimut=112.14436;
+					special="NONE";
+					id=18;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""mgc"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item8
+				{
+					position[]={1997.2109,6.2682128,5800.457};
+					azimut=112.14436;
+					special="NONE";
+					id=19;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""sn"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item9
+				{
+					position[]={1992.5128,6.068233,5794.7046};
+					azimut=112.14436;
+					special="NONE";
+					id=20;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""sp"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+			};
+		};
+		class Item3
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={1928.8639,5.7186389,5588.4785};
+					azimut=112.14436;
+					special="NONE";
+					id=21;
+					side="EAST";
+					vehicle="O_medic_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""m"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item1
+				{
+					position[]={1929.7808,5.7278075,5577.1138};
+					azimut=112.14436;
+					special="NONE";
+					id=22;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					leader=1;
+					rank="MAJOR";
+					skill=0.60000002;
+					init="[""ftl"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item2
+				{
+					position[]={1917.1902,5.6999998,5585.8701};
+					azimut=112.14436;
+					special="NONE";
+					id=23;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""rpg"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item3
+				{
+					position[]={1912.4656,5.6999998,5582.5771};
+					azimut=112.14436;
+					special="NONE";
+					id=24;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""r"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item4
+				{
+					position[]={1913.9437,5.6999998,5590.7266};
+					azimut=112.14436;
+					special="NONE";
+					id=25;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""rpgc"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item5
+				{
+					position[]={1920.1119,5.6999998,5596.5562};
+					azimut=112.14436;
+					special="NONE";
+					id=26;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""mg"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item6
+				{
+					position[]={1915.262,5.6999998,5574.2739};
+					azimut=112.14436;
+					special="NONE";
+					id=27;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""eng"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item7
+				{
+					position[]={1919.1356,5.6999998,5599.625};
+					azimut=112.14436;
+					special="NONE";
+					id=28;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""mgc"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item8
+				{
+					position[]={1912.5105,5.6999998,5602.604};
+					azimut=112.14436;
+					special="NONE";
+					id=29;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""sn"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item9
+				{
+					position[]={1907.8124,5.6999998,5596.8516};
+					azimut=112.14436;
+					special="NONE";
+					id=30;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""sp"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+			};
+		};
+		class Item4
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={2174.0791,6,5640.3413};
+					azimut=112.14436;
+					special="NONE";
+					id=31;
+					side="EAST";
+					vehicle="O_medic_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""m"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item1
+				{
+					position[]={2174.9961,6,5628.9766};
+					azimut=112.14436;
+					special="NONE";
+					id=32;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					leader=1;
+					rank="MAJOR";
+					skill=0.60000002;
+					init="[""ftl"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item2
+				{
+					position[]={2162.4055,6,5637.7329};
+					azimut=112.14436;
+					special="NONE";
+					id=33;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""rpg"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item3
+				{
+					position[]={2157.6809,6,5634.4399};
+					azimut=112.14436;
+					special="NONE";
+					id=34;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""r"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item4
+				{
+					position[]={2159.1592,6,5642.5894};
+					azimut=112.14436;
+					special="NONE";
+					id=35;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""rpgc"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item5
+				{
+					position[]={2165.3271,6,5648.4189};
+					azimut=112.14436;
+					special="NONE";
+					id=36;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""mg"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item6
+				{
+					position[]={2160.4773,6,5626.1367};
+					azimut=112.14436;
+					special="NONE";
+					id=37;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""eng"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item7
+				{
+					position[]={2164.3511,6,5651.4878};
+					azimut=112.14436;
+					special="NONE";
+					id=38;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""mgc"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item8
+				{
+					position[]={2157.7258,6,5654.4668};
+					azimut=112.14436;
+					special="NONE";
+					id=39;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""sn"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+				class Item9
+				{
+					position[]={2153.0278,6,5648.7144};
+					azimut=112.14436;
+					special="NONE";
+					id=40;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="[""sp"",this,1] call bg_fnc_initloadouts;";
+					description="Squad Leader";
+				};
+			};
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"a3_map_stratis"
+	};
+	addOnsAuto[]=
+	{
+		"a3_map_stratis"
+	};
+	randomSeed=2263615;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=7;
+		day=6;
+		hour=12;
+		minute=0;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"a3_map_stratis"
+	};
+	addOnsAuto[]=
+	{
+		"a3_map_stratis"
+	};
+	randomSeed=12932579;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=7;
+		day=6;
+		hour=12;
+		minute=0;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"a3_map_stratis"
+	};
+	addOnsAuto[]=
+	{
+		"a3_map_stratis"
+	};
+	randomSeed=16632134;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=7;
+		day=6;
+		hour=12;
+		minute=0;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};
