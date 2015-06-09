@@ -1,16 +1,3 @@
-// ====================================================================================
-
-// F3 - Disable Saving and Auto Saving
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-enableSaving [false, false];
-
-// ====================================================================================
-
-// F3 - Mute Orders and Reports
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-enableSentences false;
 
 // ====================================================================================
 
@@ -41,11 +28,9 @@ f_script_setGroupIDs = [] execVM "f\setGroupID\f_setGroupIDs.sqf";
 // ====================================================================================
 
 // F3 - Buddy Team Colours
-// Removed
-// ====================================================================================
+// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
-// F3 - Fireteam Member Markers
-// Removed
+f_script_setTeamColours = [] execVM "f\setTeamColours\f_setTeamColours.sqf";
 // ====================================================================================
 
 // F3 - F3 Folk ARPS Group Markers
@@ -115,7 +100,11 @@ if(isServer) then {
 // ====================================================================================
 
 // F3 - Group E&E Check
-// Removed
+// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
+
+// [side,ObjectName or "MarkerName",100,1] execVM "f\EandEcheck\f_EandECheckLoop.sqf";
+// [["Grp1","Grp2"],ObjectName or "MarkerName",100,1] execVM "f\EandEcheck\f_EandECheckLoop.sqf";
+
 // ====================================================================================
 
 // F3 - ORBAT Notes
@@ -123,7 +112,10 @@ if(isServer) then {
 // ====================================================================================
 
 // F3 - Loadout Notes
-// Removed
+// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
+
+[] execVM "f\briefing\f_loadoutNotes.sqf";
+
 // ====================================================================================
 
 // F3 - Join Group Action

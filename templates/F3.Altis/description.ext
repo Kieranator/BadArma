@@ -32,8 +32,12 @@ enableDebugConsole = 1;
 
 // F3 - Respawn Settings
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-// Removed
-respawn = "GROUP";
+
+respawn = 4;
+respawndelay = 3;
+respawnOnStart = 0;
+respawnTemplates[] = {"Group","Spectator","f_JIP","EndMission"};
+
 // ============================================================================================
 
 
@@ -395,11 +399,6 @@ class CfgFunctions
 			file = "f\mapClickTeleport";
 			class mapClickTeleportUnit{};
 			class mapClickTeleportGroup{};
-		};
-		class preMount
-		{
-			file = "f\preMount";
-			class mountGroups{};
 		};
 		class zeus
 		{
