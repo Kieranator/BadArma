@@ -1,0 +1,4 @@
+//DO NOT REMOVE
+#include "f3_init.sqf"
+//DO NOT REMOVE
+//EDIT BELOW THIS LINE
