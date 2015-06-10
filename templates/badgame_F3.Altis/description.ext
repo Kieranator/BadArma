@@ -74,13 +74,13 @@ class bg_loadout_selection
 		// opf_f = "f_assignGear_csat.sqf";
 		// opf_g_f = "f_assignGear_fia.sqf";
 	};
-	class independent
+	class guer
 	{
 		default = "f_assignGear_aaf.sqf";
 		// ind_f = "f_assignGear_aaf.sqf";
 		// ind_g_f = "f_assignGear_fia.sqf";
 	};
-	class civilian
+	class civ
 	{
 		default = "f_assignGear_fia.sqf";
 	}; 
