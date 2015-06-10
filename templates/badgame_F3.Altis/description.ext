@@ -40,6 +40,52 @@ respawnTemplates[] = {"Group","Spectator","f_JIP","EndMission"};
 
 // ============================================================================================
 
+// F3 - Folk Assign Gear Script
+// Credits: Please see the F2 online manual (http://www.ferstaberinde.com/f3/en/)
+// Parameter Removed - default set in f\assignGear\fn_assignGear.sqf, _loadout
+
+/*
+	sets equipment load. currently, new syntax is:
+
+	["co",this,"blu_f", 2 ] call f_fnc_assignGear;
+	
+	0 light, 1 medium (default), 2 heavy, 3+ guarantees no gear
+	negative values may result in light equip, depending on class
+	light often adds more gear without adding a backpack
+
+	["co",this] call f_fnc_assignGear;
+	functions, but will always give a medium equip load
+*/
+
+//Loadout Settings
+class bg_loadout_selection
+{
+	//Uncomment to use faction based loadouts
+	class west
+	{
+		default = "f_assignGear_nato.sqf";
+		// rhs_faction_usarmy_14 = "f_assignGear_usarmy.sqf";
+		// blu_f = "f_assignGear_nato.sqf";
+		// blu_g_f = "f_assignGear_fia.sqf";
+	};
+	class east
+	{
+		default = "f_assignGear_csat.sqf";
+		// opf_f = "f_assignGear_csat.sqf";
+		// opf_g_f = "f_assignGear_fia.sqf";
+	};
+	class independent
+	{
+		default = "f_assignGear_aaf.sqf";
+		// ind_f = "f_assignGear_aaf.sqf";
+		// ind_g_f = "f_assignGear_fia.sqf";
+	};
+	class civilian
+	{
+		default = "f_assignGear_fia.sqf";
+	}; 
+
+};
 
 // F3 - Start of Notifications block.
 
@@ -132,22 +178,6 @@ class Params
 
 // ============================================================================================
 
-// F3 - Folk Assign Gear Script
-// Credits: Please see the F2 online manual (http://www.ferstaberinde.com/f3/en/)
-// Parameter Removed - default set in f\assignGear\fn_assignGear.sqf, _loadout
-
-/*
-	sets equipment load. currently, new syntax is:
-
-	["co",this,"blu_f", 2 ] call f_fnc_assignGear;
-	
-	0 light, 1 medium (default), 2 heavy, 3+ guarantees no gear
-	negative values may result in light equip, depending on class
-	light often adds more gear without adding a backpack
-
-	["co",this] call f_fnc_assignGear;
-	functions, but will always give a medium equip load
-*/
 
 // ============================================================================================
 
