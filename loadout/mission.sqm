@@ -55,7 +55,7 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.60000002;
-					init="[""r"",this,1] call bg_fnc_initloadouts;";
+					init="[""rr"",this,1] call bg_fnc_initloadouts;";
 					description="Squad Leader";
 				};
 				class Item1
@@ -195,7 +195,7 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.60000002;
-					init="[""r"",this,1] call bg_fnc_initloadouts;";
+					init="[""rr"",this,1] call bg_fnc_initloadouts;";
 					description="Squad Leader";
 				};
 			};

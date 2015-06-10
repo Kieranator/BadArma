@@ -1,12 +1,34 @@
-//----------------------------------------------------------
-//YOU NEED TO COPY PASTE THIS INTO YOUR REAL DESCRIPTION.EXT
-//----------------------------------------------------------
-class CfgFunctions {
+class Params
+{
+	class bg_param_playerfaction
+	{
+		title = "Player faction";
+		text[] = {"No change","US Army","USMC","Motherland","Best Korea"};
+		values[] = {0,1,2,3,4};
+		default = 0;
+		code = "bg_param_playerfaction = %1";
+	};
+};
+
+class CfgFunctions
+{
 	class bg
 	{
 		class common
 		{
-			class InitLoadouts {file = "initLoad.sqf";};
+			class InitLoadouts
+			{
+				file = "initLoad.sqf";
+			};
+			
+			class processParamsArray
+			{
+				file = "fn_processParamsArray.sqf"
+				preinit = 1;
+				postInit = 1;
+			};
 		};
 	};
 };
+
+

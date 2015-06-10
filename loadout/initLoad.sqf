@@ -19,7 +19,7 @@ if (isServer && !(_unit getvariable ["bg_gearset", false])) then
 {
 	if (_side == WEST) then
 	{
-		#include "demoRHS.sqf"
+		#include "playergear.sqf"
 	}
 	else
 	{
