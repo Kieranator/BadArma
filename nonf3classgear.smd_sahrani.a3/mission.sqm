@@ -1,0 +1,242 @@
+version=12;
+class Mission
+{
+	addOns[]=
+	{
+		"A3_Characters_F_BLUFOR",
+		"a3_characters_f",
+		"smd_sahrani_a3",
+		"A3_Characters_F_OPFOR",
+		"A3_Characters_F_INDEP",
+		"A3_Characters_F_Kart"
+	};
+	addOnsAuto[]=
+	{
+		"A3_Characters_F_BLUFOR",
+		"a3_characters_f",
+		"A3_Characters_F_OPFOR",
+		"A3_Characters_F_INDEP",
+		"A3_Characters_F_Kart",
+		"smd_sahrani_a3"
+	};
+	randomSeed=9865387;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.44999999;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.44999999;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2011;
+		month=10;
+		day=11;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+	class Groups
+	{
+		items=6;
+		class Item0
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2548.324,13.891523,2871.6226};
+					id=0;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAYER COMMANDER";
+					leader=1;
+					skill=0.60000002;
+					text="p";
+					init="[""base"", this, ""opf_f""] call bg_fnc_assigngear;";
+				};
+			};
+		};
+		class Item1
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2554.3403,13.887991,2871.8188};
+					id=1;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					leader=1;
+					skill=0.60000002;
+					text="b1";
+					init="[""rat"", this] call bg_fnc_assigngear;";
+				};
+			};
+		};
+		class Item2
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2559.418,13.883859,2871.9185};
+					id=2;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					leader=1;
+					skill=0.60000002;
+					text="b2";
+					init="[""asdf"", this] call bg_fnc_assigngear;";
+				};
+			};
+		};
+		class Item3
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2559.6458,13.883673,2877.4182};
+					id=3;
+					side="EAST";
+					vehicle="O_Pilot_F";
+					leader=1;
+					skill=0.60000002;
+					text="o1";
+					init="[""rat"", this] call bg_fnc_assigngear;";
+				};
+			};
+		};
+		class Item4
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2553.9744,13.888288,2877.7222};
+					id=4;
+					side="GUER";
+					vehicle="I_pilot_F";
+					leader=1;
+					skill=0.60000002;
+					text="i1";
+					init="[""rat"", this] call bg_fnc_assigngear;";
+				};
+			};
+		};
+		class Item5
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2556.8098,13.885981,2867.6953};
+					id=5;
+					side="CIV";
+					vehicle="C_Driver_4_F";
+					leader=1;
+					skill=0.60000002;
+					text="c1";
+					init="[""rat"", this] call bg_fnc_assigngear;";
+				};
+			};
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"smd_sahrani_a3"
+	};
+	addOnsAuto[]=
+	{
+		"smd_sahrani_a3"
+	};
+	randomSeed=4223399;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.44999999;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.44999999;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2011;
+		month=10;
+		day=11;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"smd_sahrani_a3"
+	};
+	addOnsAuto[]=
+	{
+		"smd_sahrani_a3"
+	};
+	randomSeed=13119426;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.44999999;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.44999999;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2011;
+		month=10;
+		day=11;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"smd_sahrani_a3"
+	};
+	addOnsAuto[]=
+	{
+		"smd_sahrani_a3"
+	};
+	randomSeed=4802822;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.44999999;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.44999999;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2011;
+		month=10;
+		day=11;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};

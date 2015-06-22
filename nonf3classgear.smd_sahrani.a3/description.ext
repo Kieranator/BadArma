@@ -1,0 +1,17 @@
+saving = 0;
+
+#include "bg\bg_loadout_define.h"
+
+class cfgFunctions
+{
+	class bg
+	{
+		class common
+		{
+			class assigngear
+			{
+				file = "bg\assigngear.sqf";
+			};
+		};
+	};
+};
