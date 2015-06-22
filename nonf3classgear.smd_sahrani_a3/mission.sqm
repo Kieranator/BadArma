@@ -8,10 +8,12 @@ class Mission
 		"smd_sahrani_a3",
 		"A3_Characters_F_OPFOR",
 		"A3_Characters_F_INDEP",
-		"A3_Characters_F_Kart"
+		"A3_Characters_F_Kart",
+		"rhsusf_c_troops"
 	};
 	addOnsAuto[]=
 	{
+		"rhsusf_c_troops",
 		"A3_Characters_F_BLUFOR",
 		"a3_characters_f",
 		"A3_Characters_F_OPFOR",
@@ -50,12 +52,11 @@ class Mission
 					position[]={2548.324,13.891523,2871.6226};
 					id=0;
 					side="WEST";
-					vehicle="B_Soldier_F";
+					vehicle="rhsusf_army_ucp_rifleman";
 					player="PLAYER COMMANDER";
 					leader=1;
 					skill=0.60000002;
 					text="p";
-					init="[""base"", this, ""opf_f""] call bg_fnc_assigngear;";
 				};
 			};
 		};

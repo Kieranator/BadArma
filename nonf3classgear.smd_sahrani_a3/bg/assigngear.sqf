@@ -17,11 +17,31 @@ private
 
 _typeofUnit = toLower (_this select 0);
 _faction = toLower (faction _unit);
+_unitSidestring = tolower (str(side _unit));
 
 // optional third argument to set faction
 if(count _this > 2) then
 {
 	_faction = toLower (_this select 2);
+	
+	// faction aliases because
+	switch (_faction) do
+	{
+		default {};
+		case ("usarmyocp") : {_faction = "rhs_faction_usarmy_d"};
+		case ("usarmyucp") : {_faction = "rhs_faction_usarmy_wd"};
+	};
+		
+	// if argument is given, unit gets that faction's gear regardless of side
+	if !(isclass (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction)) then
+	{
+		{
+			if (isclass (missionconfigfile >> "bg_loadout_define" >> _x >> _faction)) exitwith
+			{
+				_unitsidestring = _x;
+			};
+		} foreach ["west", "east", "guer", "civ"];
+	};
 };
 
 // A public variable is set on the unit, indicating their type. This is mostly relevant for the F3 respawn component
@@ -35,8 +55,6 @@ _unit setVariable ["BIS_enableRandomization", false];
 
 
 //defaulting, not quite as good as bg_loadout_selection yet
-_unitSidestring = tolower (str(side _unit));
-
 _sideexists = isclass (missionconfigfile >> "bg_loadout_define" >> _unitSidestring);
 _factionexists = isclass (missionconfigfile >> "bg_loadout_define" >> _unitSidestring >> _faction);
 _typeexists = isclass (missionconfigfile >> "bg_loadout_define" >> _unitSidestring >> _faction >> _typeofunit);

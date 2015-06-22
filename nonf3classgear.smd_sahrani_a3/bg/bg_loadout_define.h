@@ -51,6 +51,8 @@ class bg_loadout_define
 		};
 		
 		#include "gear_nato.h"
+		#include "gear_usarmyd_ocp.h"
+		#include "gear_usarmywd_ucp.h"
 		
 	};
 	
