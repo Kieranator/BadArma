@@ -74,7 +74,7 @@ _bipod2 = "bipod_01_F_snd";		// Default bipod
 _bipod1 = "bipod_02_F_blk";		// Black bipod
 
 // Default setup
-_attachments = [_attach1,_scope1]; // The default attachment set for most units, overwritten in the individual unitType
+_attachments = []; // The default attachment set for most units, overwritten in the individual unitType
 
 // [] = remove all
 // [_attach1,_scope1,_silencer] = remove all, add items assigned in _attach1, _scope1 and _silencer1
@@ -96,14 +96,14 @@ _hg_attachments= []; // The default attachment set for handguns, overwritten in 
 // WEAPON SELECTION
 
 // Standard Riflemen ( MMG Assistant Gunner, Assistant Automatic Rifleman, MAT Assistant Gunner, MTR Assistant Gunner, Rifleman)
-_rifle = "rhs_weap_m4_grip";
+_rifle = "rhs_weap_m16a4_carryhandle";
 _riflemag = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
 _riflemag_tr = "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red";
 
 // Standard Carabineer (Medic, Rifleman (AT), MAT Gunner, MTR Gunner, Carabineer)
-_carbine = "rhs_weap_m4_grip";
-_carbinemag = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
-_carbinemag_tr = "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red";
+_carbine = "rhs_weap_akm";
+_carbinemag = "hlc_30Rnd_762x39_b_ak";
+_carbinemag_tr = "hlc_30Rnd_762x39_t_ak";
 
 // Standard Submachine Gun/Personal Defence Weapon (Aircraft Pilot, Submachinegunner)
 _smg = "SMG_01_F";
@@ -116,7 +116,7 @@ _diverMag1 = "30Rnd_556x45_Stanag";
 _diverMag2 = "20Rnd_556x45_UW_mag";
 
 // Rifle with GL and HE grenades (CO, DC, FTLs)
-_glrifle = "rhs_weap_m4_m320";
+_glrifle = "rhs_weap_m16a4_carryhandle_M203";
 _glriflemag = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
 _glriflemag_tr = "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red";
 _glmag = "rhs_mag_M433_HEDP";
@@ -133,8 +133,8 @@ _glflareyellow = "3Rnd_UGL_FlareYellow_F";
 _glflaregreen = "3Rnd_UGL_FlareGreen_F";
 
 // Pistols (CO, DC, Automatic Rifleman, Medium MG Gunner)
-_pistol = "RH_m9";
-_pistolmag = "RH_15Rnd_9x19_M9";
+_pistol = "RH_cz75";
+_pistolmag = "RH_16Rnd_9x19_CZ";
 
 // Grenades
 _grenade = "HandGrenade";
@@ -159,8 +159,8 @@ _chemyellow =  "Chemlight_yellow";
 _chemblue = "Chemlight_blue";
 
 // Backpacks
-_bagsmall = "rhsusf_assault_eagleaiii_ucp";			// carries 120, weighs 20
-_bagmedium = "rhsusf_assault_eagleaiii_ucp";				// carries 240, weighs 30
+_bagsmall = "LOP_FieldPack_CBR";			// carries 120, weighs 20
+_bagmedium = "B_TacticalPack_blk";				// carries 240, weighs 30
 _baglarge =  "B_Carryall_mcamo"; 			// carries 320, weighs 40
 _bagmediumdiver =  "B_AssaultPack_blk";		// used by divers
 _baguav = "B_UAV_01_backpack_F";			// used by UAV operator
@@ -178,9 +178,9 @@ _baghsamag = "B_HMG_01_support_F";			// used by Heavy SAM assistant gunner
 // UNIQUE, ROLE-SPECIFIC EQUIPMENT
 
 // Automatic Rifleman
-_AR = "hlc_m249_pip1";
-_ARmag = "hlc_200rnd_556x45_B_SAW";
-_ARmag_tr = "hlc_200rnd_556x45_T_SAW";
+_AR = "hlc_rifle_rpk";
+_ARmag = "hlc_45Rnd_762x39_m_rpk";
+_ARmag_tr = "hlc_45Rnd_762x39_t_rpk";
 
 // Medium MG
 _MMG = "MMG_02_sand_F";
@@ -201,8 +201,8 @@ _DMriflemag = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
 //_DMriflemag = "10Rnd_338_Mag";
 
 // Rifleman AT
-_RAT = "rhs_weap_M136";
-_RATmag = "rhs_m136_mag";
+_RAT = "rhs_weap_rpg7";
+_RATmag = "rhs_rpg7_PG7VL_mag";
 
 // Medium AT
 _MAT = "launch_NLAW_F";
@@ -245,14 +245,14 @@ _specOp = [];
 
 // Basic clothing
 // The outfit-piece is randomly selected from the array for each unit
-_baseUniform = ["rhs_uniform_cu_ucp"];
-_baseHelmet = ["rhsusf_ach_helmet_headset_ucp","rhsusf_ach_helmet_headset_ess_ucp"];
+_baseUniform = ["Niko_USA_6cd","Niko_USA_R_6cd"];
+_baseHelmet = ["Niko_MICH_Tan","rhsusf_ach_bare_tan"];
 _baseGlasses = nil;
 
 // Vests
-_lightRig = ["rhsusf_iotv_ucp_Grenadier"];
-_mediumRig = ["rhsusf_iotv_ucp_Rifleman"]; 	// default for all infantry classes
-_heavyRig = ["rhsusf_iotv_ucp_SAW"];
+_lightRig = ["V_TacVest_camo"];
+_mediumRig = ["V_TacVest_camo"]; 	// default for all infantry classes
+_heavyRig = ["V_TacVest_camo"];
 
 // Diver
 _diverUniform =  ["U_B_Wetsuit"];
@@ -340,7 +340,7 @@ _backpack = {
 	if (count _this > 1) then {_loadout = _this select 1}; // {["g", <pack size>] call _backpack;} to override unit init
 	switch (_typeofBackPack) do
 	{
-		#include "f_assignGear_usarmy_b.sqf";
+		#include "f_assignGear_iraqi_b.sqf";
 	};
 };
 
@@ -371,7 +371,6 @@ switch (_typeofUnit) do
 		_unit addmagazines [_smokegrenadegreen,2];
 		_unit addWeapon "Rangefinder";
 		_unit linkItem "ItemGPS";
-		_attachments = [_attach1,_scope2];
 		["g"] call _backpack;
 	};
 
@@ -391,7 +390,6 @@ switch (_typeofUnit) do
 		_unit addmagazines [_smokegrenadegreen,2];
 		_unit addWeapon "Rangefinder";
 		_unit linkItem "ItemGPS";
-		_attachments = [_attach1,_scope2];
 		["g"] call _backpack;
 	};
 
@@ -420,7 +418,6 @@ switch (_typeofUnit) do
 		_unit addmagazines [_smokegrenadegreen,2];
 		_unit addWeapon "Rangefinder";
 		_unit linkItem "ItemGPS";
-		_attachments = [_attach1,_scope2];
 		["g"] call _backpack;
 	};
 
@@ -436,7 +433,7 @@ switch (_typeofUnit) do
 		_unit addmagazines [_pistolmag,4];
 		_unit addweapon _pistol;
 		["ar"] call _backpack;
-		_attachments = [_attach1,_scope4];
+		//_attachments = [_attach1,_scope4];
 		
 	};
 
@@ -849,7 +846,7 @@ switch (_typeofUnit) do
 		_unit addMagazineCargoGlobal [_glriflemag, 8];
 		_unit addMagazineCargoGlobal [_carbinemag, 10];
 		_unit addMagazineCargoGlobal [_armag, 5];
-		_unit addMagazineCargoGlobal [_satchel, 1];
+		_unit addMagazineCargoGlobal [_ratmag, 1];
 		_unit addMagazineCargoGlobal [_grenade, 4];
 		_unit addMagazineCargoGlobal [_smokegrenade, 4];
 		_unit addMagazineCargoGlobal [_smokegrenadegreen, 2];
