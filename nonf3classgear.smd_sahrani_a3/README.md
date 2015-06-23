@@ -1,7 +1,7 @@
 # descClassGear
 Set faction loadouts in decsription.ext with inheritance.
 
-gear_usarmywd_ucp.h is a good example
+gear_usarmywd_ucp.h is a good example. might be a better way to change the uniforms on each class, but it shows how you can inherit from an identically named class in the superclass
 
 ###to do
 - integrate with f3
