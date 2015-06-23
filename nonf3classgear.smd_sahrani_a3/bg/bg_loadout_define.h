@@ -67,6 +67,7 @@ class bg_loadout_define
 		};
 		
 		#include "gear_csat.h"
+		#include "gear_rus.h"
 		
 	};
 	
@@ -80,7 +81,7 @@ class bg_loadout_define
 			};
 		};
 		
-	//	#include "gear_guer.h"
+		#include "gear_aaf.h"
 	
 	};
 	
@@ -94,7 +95,7 @@ class bg_loadout_define
 			};
 		};
 		
-	//	#include "gear_civ.h"
+		#include "gear_civ.h"
 	
 	};
 };

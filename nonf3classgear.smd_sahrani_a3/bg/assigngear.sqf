@@ -28,8 +28,14 @@ if(count _this > 2) then
 	switch (_faction) do
 	{
 		default {};
+		case ("nato") : {_faction = "blu_f"};
+		case ("csat") : {_faction = "opf_f"};
+		case ("fia") : {_faction = "blu_g_f"};
+		case ("aaf") : {_faction = "ind_f"};
+		case ("civ") : {_faction = "civ_f"};
 		case ("usarmyocp") : {_faction = "rhs_faction_usarmy_d"};
 		case ("usarmyucp") : {_faction = "rhs_faction_usarmy_wd"};
+		case ("rus") : {_faction = "rhs_faction_msv"};
 	};
 		
 	// if argument is given, unit gets that faction's gear regardless of side

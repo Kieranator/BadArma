@@ -6,17 +6,19 @@ class Mission
 		"A3_Characters_F_BLUFOR",
 		"a3_characters_f",
 		"smd_sahrani_a3",
-		"A3_Characters_F_OPFOR",
 		"A3_Characters_F_INDEP",
 		"A3_Characters_F_Kart",
-		"rhsusf_c_troops"
+		"rhsusf_c_troops",
+		"rhs_c_troops",
+		"A3_Characters_F_Gamma"
 	};
 	addOnsAuto[]=
 	{
 		"rhsusf_c_troops",
 		"A3_Characters_F_BLUFOR",
 		"a3_characters_f",
-		"A3_Characters_F_OPFOR",
+		"A3_Characters_F_Gamma",
+		"rhs_c_troops",
 		"A3_Characters_F_INDEP",
 		"A3_Characters_F_Kart",
 		"smd_sahrani_a3"
@@ -40,7 +42,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=6;
+		items=7;
 		class Item0
 		{
 			side="WEST";
@@ -49,7 +51,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2548.324,13.891523,2871.6226};
+					position[]={2551.3804,13.8904,2873.9382};
 					id=0;
 					side="WEST";
 					vehicle="rhsusf_army_ucp_rifleman";
@@ -68,7 +70,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2554.3403,13.887991,2871.8188};
+					position[]={2559.4648,13.883821,2873.9343};
 					id=1;
 					side="WEST";
 					vehicle="B_Soldier_F";
@@ -87,10 +89,10 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2559.418,13.883859,2871.9185};
+					position[]={2561.7842,13.883385,2873.9387};
 					id=2;
 					side="WEST";
-					vehicle="B_Soldier_F";
+					vehicle="B_G_Soldier_F";
 					leader=1;
 					skill=0.60000002;
 					text="b2";
@@ -106,14 +108,14 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2559.6458,13.883673,2877.4182};
+					position[]={2559.4487,13.883833,2877.4182};
 					id=3;
 					side="EAST";
-					vehicle="O_Pilot_F";
+					vehicle="rhs_msv_emr_rifleman";
 					leader=1;
 					skill=0.60000002;
 					text="o1";
-					init="[""rat"", this] call bg_fnc_assigngear;";
+					init="[""r"", this] call bg_fnc_assigngear;";
 				};
 			};
 		};
@@ -125,7 +127,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2553.9744,13.888288,2877.7222};
+					position[]={2555.7983,13.886805,2877.4292};
 					id=4;
 					side="GUER";
 					vehicle="I_pilot_F";
@@ -144,13 +146,32 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2556.8098,13.885981,2867.6953};
+					position[]={2555.7998,13.886803,2873.9795};
 					id=5;
 					side="CIV";
 					vehicle="C_Driver_4_F";
 					leader=1;
 					skill=0.60000002;
 					text="c1";
+					init="[""rat"", this] call bg_fnc_assigngear;";
+				};
+			};
+		};
+		class Item6
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2561.7163,13.883385,2877.4194};
+					id=6;
+					side="EAST";
+					vehicle="rhs_pilot";
+					leader=1;
+					skill=0.60000002;
+					text="o2";
 					init="[""rat"", this] call bg_fnc_assigngear;";
 				};
 			};
