@@ -59,6 +59,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="p";
+					init="[""base"", this] call bg_fnc_assigngear;";
 				};
 			};
 		};
@@ -96,7 +97,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="b2";
-					init="[""asdf"", this] call bg_fnc_assigngear;";
+					init="[""aar"", this] call bg_fnc_assigngear;";
 				};
 			};
 		};
