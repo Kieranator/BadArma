@@ -12,6 +12,7 @@ private
 	"_uniform", "_helmet", "_vest", "_pack", "_facewear", "_goggles", "_binos", "_map", "_terminal", "_radio", "_compass", "_watch",
 	"_meditems", "_items", "_packitems", "_packmags",
 	"_primary", "_primarymags", "_primaryattach", "_secondary", "_secondarymags", "_secondaryattach", "_handgun", "_handgunmags", "_handgunattach",
+	"_weapons1", "_weapons2", "_weapons3", "_mags1", "_mags2", "_mags3", "_items1", "_items2", "_items3", "_packs1", "_packs2", "_packs3",
 	"_gearvalue", "_gearname"
 ];
 
@@ -82,6 +83,7 @@ diag_log format [" %1 : %2 >> %3 >> %4 final", _unit, _unitsidestring, _faction,
 
 
 //vars
+
 _gearvalue = "";
 _gearname = "";
 
@@ -100,92 +102,153 @@ for "_x" from 0 to (count (missionconfigfile >> "bg_loadout_define" >> "side" >>
 	};
 	
 	_code = format ["_%1 = %2", _gearName, _gearValue];
-	diag_log format [" %1 : _code: %2 ", _unit, _code];
+	diag_log format ["type: %1 : _code: %2 ", _unit, _code];
+	call compile _code;
+};
+//lazy
+for "_x" from 0 to (count (missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "cargotype") - 1) do
+{
+	_gearname = configname ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "cargotype") select _x);
+	
+	if (isarray ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "cargotype") select _x)) then
+	{
+		_gearValue = str (getarray (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
+	}
+	else
+	{
+		_gearValue = str (gettext (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
+	};
+	
+	_code = format ["_%1 = %2", _gearName, _gearValue];
+	diag_log format ["cargotype: %1 : _code: %2 ", _unit, _code];
 	call compile _code;
 };
 
+
 //commands
 
-//clear unit
-removeBackpack _unit;
-removeAllWeapons _unit;
-removeAllItemsWithMagazines _unit;
-removeAllAssignedItems _unit;
-removeUniform _unit;
-removeHeadgear _unit;
-removegoggles _unit;
-removeVest _unit;
-
-//add containers
-_unit forceadduniform _uniform;
-_unit addheadgear _helmet;
-_unit addvest _vest;
-_unit addgoggles _facewear;
-_unit addbackpack _pack;
-clearMagazineCargoGlobal (unitBackpack _unit);
-
-//linkables
-{_unit linkitem _x} foreach [_map, _compass, _watch, _radio, _terminal, _goggles];
-
-//mags in backpack
+//crates and vehicles
+if !(_unit iskindof "man") then
 {
-	(unitBackpack _unit) addMagazineCargoGlobal _x;
-} foreach _packmags;
-
-//items in backpack
-{
-	(unitBackpack _unit) addItemCargoGlobal _x;
-} foreach _packitems;
-
-//medical items
-{
-	for "_i" from 1 to (_x select 1) do
+	//clear crate/vehicle
+	clearWeaponCargoGlobal _unit;
+	clearMagazineCargoGlobal _unit;
+	clearItemCargoGlobal _unit;
+	clearBackpackCargoGlobal _unit;
+	
+	// add weapons
 	{
-		_unit additem (_x select 0);
-	};
-} foreach _meditems;
-
-//general items
-{
-	for "_i" from 1 to (_x select 1) do
+		{
+			_unit addweaponcargoglobal _x;
+		} foreach _x;
+	} foreach [_weapons1, _weapons2, _weapons3];
+	
+	// add mags
 	{
-		_unit additem (_x select 0);
-	};
-} foreach _items;
+		{
+			_unit addmagazinecargoglobal _x;
+		} foreach _x;
+	} foreach [_mags1, _mags2, _mags3];
+	
+	// add items
+	{
+		{
+			_unit additemcargoglobal _x;
+		} foreach _x;
+	} foreach [_items1, _items2, _items3];
+	
+	// add packs
+	{
+		{
+			_unit addbackpackcargoglobal _x;
+		} foreach _x;
+	} foreach [_packs1, _packs2, _packs3];
+}
 
-//primary weapon mags
+//men
+else
 {
-	_unit addmagazines _x;
-} foreach _primarymags;
 
-//launcher mags
-{
-	_unit addmagazines _x;
-} foreach _secondarymags;
+	//clear unit
+	removeBackpack _unit;
+	removeAllWeapons _unit;
+	removeAllItemsWithMagazines _unit;
+	removeAllAssignedItems _unit;
+	removeUniform _unit;
+	removeHeadgear _unit;
+	removegoggles _unit;
+	removeVest _unit;
 
-//handgun mags
-{
-	_unit addmagazines _x;
-} foreach _handgunmags;
+	//add containers
+	_unit forceadduniform _uniform;
+	_unit addheadgear _helmet;
+	_unit addvest _vest;
+	_unit addgoggles _facewear;
+	_unit addbackpack _pack;
+	clearMagazineCargoGlobal (unitBackpack _unit);
 
-//weapons
-{
-	_unit addweapon _x;
-} foreach [_primary, _secondary, _handgun, _binos];
+	//linkables
+	{_unit linkitem _x} foreach [_map, _compass, _watch, _radio, _terminal, _goggles];
 
-//attachments
-{
-	_unit addPrimaryWeaponItem _x;
-} foreach _primaryattach;
+	//mags in backpack
+	{
+		(unitBackpack _unit) addMagazineCargoGlobal _x;
+	} foreach _packmags;
 
-{
-	_unit addHandgunItem _x;
-} foreach _handgunattach;
+	//items in backpack
+	{
+		(unitBackpack _unit) addItemCargoGlobal _x;
+	} foreach _packitems;
 
-{
-	_unit addsecondaryWeaponItem _x;
-} foreach _secondaryattach;
+	//medical items
+	{
+		for "_i" from 1 to (_x select 1) do
+		{
+			_unit additem (_x select 0);
+		};
+	} foreach _meditems;
 
+	//general items
+	{
+		for "_i" from 1 to (_x select 1) do
+		{
+			_unit additem (_x select 0);
+		};
+	} foreach _items;
+
+	//primary weapon mags
+	{
+		_unit addmagazines _x;
+	} foreach _primarymags;
+
+	//launcher mags
+	{
+		_unit addmagazines _x;
+	} foreach _secondarymags;
+
+	//handgun mags
+	{
+		_unit addmagazines _x;
+	} foreach _handgunmags;
+
+	//weapons
+	{
+		_unit addweapon _x;
+	} foreach [_primary, _secondary, _handgun, _binos];
+
+	//attachments
+	{
+		_unit addPrimaryWeaponItem _x;
+	} foreach _primaryattach;
+
+	{
+		_unit addHandgunItem _x;
+	} foreach _handgunattach;
+
+	{
+		_unit addsecondaryWeaponItem _x;
+	} foreach _secondaryattach;
+};
 
 // This variable simply tracks the progress of the gear assignation process, for other scripts to reference.
 _unit setVariable ["f_var_assignGear_done",true,true];

@@ -10,7 +10,9 @@ class Mission
 		"A3_Characters_F_Kart",
 		"rhsusf_c_troops",
 		"rhs_c_troops",
-		"A3_Characters_F_Gamma"
+		"A3_Characters_F_Gamma",
+		"A3_Weapons_F_Ammoboxes",
+		"A3_Armor_F_Panther"
 	};
 	addOnsAuto[]=
 	{
@@ -21,6 +23,8 @@ class Mission
 		"rhs_c_troops",
 		"A3_Characters_F_INDEP",
 		"A3_Characters_F_Kart",
+		"A3_Weapons_F_Ammoboxes",
+		"A3_Armor_F_Panther",
 		"smd_sahrani_a3"
 	};
 	randomSeed=9865387;
@@ -169,13 +173,39 @@ class Mission
 					position[]={2561.7163,13.883385,2877.4194};
 					id=6;
 					side="EAST";
-					vehicle="rhs_pilot";
+					vehicle="rhs_msv_rifleman";
 					leader=1;
 					skill=0.60000002;
 					text="o2";
 					init="[""rat"", this] call bg_fnc_assigngear;";
 				};
 			};
+		};
+	};
+	class Vehicles
+	{
+		items=2;
+		class Item0
+		{
+			position[]={2559.4778,13.88381,2872.7588};
+			id=7;
+			side="EMPTY";
+			vehicle="Box_NATO_Ammo_F";
+			leader=1;
+			skill=0.60000002;
+			text="cnato";
+			init="[""crate_small"", this, ""nato""] call bg_fnc_assigngear;";
+		};
+		class Item1
+		{
+			position[]={2559.6609,13.88366,2866.9934};
+			id=8;
+			side="EMPTY";
+			vehicle="B_APC_Tracked_01_rcws_F";
+			leader=1;
+			skill=0.60000002;
+			text="vnato";
+			init="[""v_ifv"", this, ""nato""] call bg_fnc_assigngear;";
 		};
 	};
 };

@@ -25,4 +25,7 @@ class blu_f : faction
 		primaryattach[] = {"optic_Aco"};
 		packitems[] = {{"Binocular",1}};
 	};
+	
+	#include "crate_nato.h"
+	#include "veh_nato.h"
 };

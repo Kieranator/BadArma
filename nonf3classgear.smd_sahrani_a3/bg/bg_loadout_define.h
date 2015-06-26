@@ -1,8 +1,8 @@
 class bg_loadout_define 
 {
-	class side
+	class side // superclass
 	{
-		class faction // superclass
+		class faction
 		{
 			class type
 			{
@@ -37,8 +37,28 @@ class bg_loadout_define
 				secondarymags[] = {{"",0}};
 				secondaryattach[] = {""};
 			};
-		}; // define subclasses below
-	};
+			class cargotype
+			{
+				weapons1[] = {{"",0}};
+				weapons2[] = {{"",0}};
+				weapons3[] = {{"",0}};
+				
+				mags1[] = {{"",0}};
+				mags2[] = {{"",0}};
+				mags3[] = {{"",0}};
+				
+				items1[] = {{"",0}};
+				items2[] = {{"",0}};
+				items3[] = {{"",0}};
+				
+				packs1[] = {{"",0}};
+				packs2[] = {{"",0}};
+				packs3[] = {{"",0}};
+				// redundant properties because cargos tend to have lots of things
+				// redefining an entire property to add a single element is dumb
+			};
+		};
+	}; // define subclasses below
 	
 	class west : side
 	{
@@ -48,6 +68,8 @@ class bg_loadout_define
 			{
 				uniform = "U_B_CombatUniform_mcam";
 			};
+			
+			class cargotype {};
 		};
 		
 		#include "gear_nato.h"
@@ -65,6 +87,8 @@ class bg_loadout_define
 			{
 				uniform = "U_O_CombatUniform_ocamo";
 			};
+			
+			class cargotype {};
 		};
 		
 		#include "gear_csat.h"
@@ -80,6 +104,8 @@ class bg_loadout_define
 			{
 				uniform = "U_I_CombatUniform";
 			};
+			
+			class cargotype {};
 		};
 		
 		#include "gear_aaf.h"
@@ -94,6 +120,8 @@ class bg_loadout_define
 			{
 				uniform = "U_C_Poloshirt_blue";
 			};
+			
+			class cargotype {};
 		};
 		
 		#include "gear_civ.h"
