@@ -8,5 +8,4 @@ check comments in assigngear.sqf and weapon_random_example.h for details on rand
 ###to do
 - integrate with f3
 - separate weapons config / class ???
-- random selection if provided array of uniforms, weapons, etc
 - write full faction loadouts as needed
