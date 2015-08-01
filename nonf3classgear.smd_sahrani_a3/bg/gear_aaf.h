@@ -2,9 +2,9 @@ class ind_f : faction
 {
 	class base : type
 	{
-		helmet = "H_HelmetIA";
-		vest = "V_PlateCarrierIA1_dgtl";
-		pack = "B_AssaultPack_dgtl";
+		helmet[] = {"H_HelmetIA"};
+		vest[] = {"V_PlateCarrierIA1_dgtl"};
+		pack[] = {"B_AssaultPack_dgtl"};
 		
 		#include "weapon_mk20.h"
 	};
@@ -16,11 +16,19 @@ class ind_f : faction
 	
 	class rat : r
 	{
-		secondary = "launch_NLAW_F";
+		secondary[] =
+		{
+			{
+				"launch_NLAW_F", 
+				{
+					{"",0}
+				}
+			}
+		};
 	};
 	
 	class aar : r
 	{
-		packitems[] = {{"Binocular",1}};
+		binos[] = {"Binocular"};
 	};
 };

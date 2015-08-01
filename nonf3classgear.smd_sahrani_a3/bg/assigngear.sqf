@@ -9,9 +9,9 @@ if !(local _unit) exitWith {};
 private
 [
 	"_faction","_typeofUnit", "_unitsidestring", "_sideexists", "_factionexists", "_typeexists",
-	"_uniform", "_helmet", "_vest", "_pack", "_facewear", "_goggles", "_binos", "_map", "_terminal", "_radio", "_compass", "_watch",
+	"_uniform", "_helmet", "_vest", "_pack", "_facewear", "_goggles", "_map", "_terminal", "_radio", "_compass", "_watch",
 	"_meditems", "_items", "_packitems", "_packmags",
-	"_primary", "_primarymags", "_primaryattach", "_secondary", "_secondarymags", "_secondaryattach", "_handgun", "_handgunmags", "_handgunattach",
+	"_primary", "_primaryfinal","_primaryattach", "_secondary", "_secondaryfinal","_secondaryattach", "_handgun", "_handgunfinal","_handgunattach", "_binos", "_binosfinal",
 	"_weapons1", "_weapons2", "_weapons3", "_mags1", "_mags2", "_mags3", "_items1", "_items2", "_items3", "_packs1", "_packs2", "_packs3",
 	"_gearvalue", "_gearname"
 ];
@@ -19,6 +19,9 @@ private
 _typeofUnit = toLower (_this select 0);
 _faction = toLower (faction _unit);
 _unitSidestring = tolower (str(side _unit));
+
+diag_log "___________________________________________";
+diag_log format["Gearing ""%1"": %2, %3", _unit, _unitsidestring, _faction];
 
 // optional third argument to set faction
 if(count _this > 2) then
@@ -65,7 +68,8 @@ _unit setVariable ["BIS_enableRandomization", false];
 _sideexists = isclass (missionconfigfile >> "bg_loadout_define" >> _unitSidestring);
 _factionexists = isclass (missionconfigfile >> "bg_loadout_define" >> _unitSidestring >> _faction);
 _typeexists = isclass (missionconfigfile >> "bg_loadout_define" >> _unitSidestring >> _faction >> _typeofunit);
-diag_log format [" %1 : %2 >> %3 >> %4 requested", _unit, _unitsidestring, _faction, _typeofunit];
+
+diag_log format ["%1: %2 >> %3 >> %4 requested", _unit, _unitsidestring, _faction, _typeofunit];
 
 if !(_sideexists) then
 {
@@ -79,7 +83,8 @@ if !(_typeexists) then
 {
 	_typeofunit = configname ((missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction) select 0);
 };
-diag_log format [" %1 : %2 >> %3 >> %4 final", _unit, _unitsidestring, _faction, _typeofunit];
+
+diag_log format ["%1: %2 >> %3 >> %4 final", _unit, _unitsidestring, _faction, _typeofunit];
 
 
 //vars
@@ -88,40 +93,48 @@ _gearvalue = "";
 _gearname = "";
 
 // generates vars from description.ext, slower than f3 e.g. 31.3416 ms
-for "_x" from 0 to (count (missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "type") - 1) do
+if (_unit iskindof "man") then
+// man types
 {
-	_gearname = configname ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "type") select _x);
-	
-	if (isarray ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "type") select _x)) then
+	for "_x" from 0 to (count (missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "type") - 1) do
 	{
-		_gearValue = str (getarray (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
-	}
-	else
-	{
-		_gearValue = str (gettext (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
+		_gearname = configname ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "type") select _x);
+		
+		if (isarray ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "type") select _x)) then
+		{
+			_gearValue = str (getarray (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
+		}
+		else
+		{
+			_gearValue = str (gettext (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
+		};
+		
+		_code = format ["_%1 = %2", _gearName, _gearValue];
+		diag_log format ["type: %1 : _code: %2 ", _unit, _code];
+		call compile _code;
 	};
-	
-	_code = format ["_%1 = %2", _gearName, _gearValue];
-	diag_log format ["type: %1 : _code: %2 ", _unit, _code];
-	call compile _code;
-};
-//lazy
-for "_x" from 0 to (count (missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "cargotype") - 1) do
+}
+
+// cargo types
+else
 {
-	_gearname = configname ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "cargotype") select _x);
-	
-	if (isarray ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "cargotype") select _x)) then
+	for "_x" from 0 to (count (missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "cargotype") - 1) do
 	{
-		_gearValue = str (getarray (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
-	}
-	else
-	{
-		_gearValue = str (gettext (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
+		_gearname = configname ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "cargotype") select _x);
+		
+		if (isarray ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "cargotype") select _x)) then
+		{
+			_gearValue = str (getarray (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
+		}
+		else
+		{
+			_gearValue = str (gettext (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
+		};
+		
+		_code = format ["_%1 = %2", _gearName, _gearValue];
+		//diag_log format ["cargotype: %1 : _code: %2 ", _unit, _code];
+		call compile _code;
 	};
-	
-	_code = format ["_%1 = %2", _gearName, _gearValue];
-	diag_log format ["cargotype: %1 : _code: %2 ", _unit, _code];
-	call compile _code;
 };
 
 
@@ -163,12 +176,41 @@ if !(_unit iskindof "man") then
 			_unit addbackpackcargoglobal _x;
 		} foreach _x;
 	} foreach [_packs1, _packs2, _packs3];
+	
+	diag_log format ["crate/veh inventory: %1", _weapons1 + _weapons2 + _weapons3 +_mags1 + _mags2 + _mags3 + _items1 + _items2 + _items3 + _packs1 + _packs2 + _packs3 - ["",0]];
 }
 
 //men
 else
 {
-
+	//few randomization needfuls
+	_primaryfinal = _primary call bis_fnc_selectrandom;
+	_secondaryfinal = _secondary call bis_fnc_selectrandom;
+	_handgunfinal = _handgun call bis_fnc_selectrandom;
+	_binosfinal = _binos call bis_fnc_selectrandom;
+	
+	diag_log format ["weapons: <%1>, <%2>, <%3>, <%4>",	(_primaryfinal select 0), (_secondaryfinal select 0),(_handgunfinal select 0), _binosfinal];
+	
+	//attachments
+	// -attach properties override attachments set in weapon property
+	// to override to no attachments, define -attach property as {{""}}
+	// property must be {{"none"}} for weapon property attachments to apply
+	// attachment element in weapon property is optional
+	{
+		if (str(_x) == "[[""none""]]" && count([_primaryfinal, _secondaryfinal, _handgunfinal] select _foreachindex) > 2) then
+		{
+			//_x = +([_primaryfinal, _secondaryfinal, _handgunfinal] select _foreachindex select 2);
+			//[_primaryattach, _secondaryattach, _handgunattach] set [_foreachindex, +([_primaryfinal, _secondaryfinal, _handgunfinal] select _foreachindex select 2)];
+			//neither of those  work but this does??
+			_wtc = _x;
+			{
+				(_wtc) set [_foreachindex, (_x)];
+			} foreach (([_primaryfinal, _secondaryfinal, _handgunfinal] select _foreachindex) select 2);
+		};
+	} foreach [_primaryattach, _secondaryattach, _handgunattach];
+	
+	//diag_log format ["Pattach %1, Sattach %2, Hattach %3",_primaryattach, _secondaryattach, _handgunattach];
+	
 	//clear unit
 	removeBackpack _unit;
 	removeAllWeapons _unit;
@@ -180,15 +222,15 @@ else
 	removeVest _unit;
 
 	//add containers
-	_unit forceadduniform _uniform;
-	_unit addheadgear _helmet;
-	_unit addvest _vest;
-	_unit addgoggles _facewear;
-	_unit addbackpack _pack;
+	_unit forceadduniform (_uniform call bis_fnc_selectrandom);
+	_unit addheadgear (_helmet call bis_fnc_selectrandom);
+	_unit addvest (_vest call bis_fnc_selectrandom);
+	_unit addgoggles (_facewear call bis_fnc_selectrandom);
+	_unit addbackpack (_pack call bis_fnc_selectrandom);
 	clearMagazineCargoGlobal (unitBackpack _unit);
 
 	//linkables
-	{_unit linkitem _x} foreach [_map, _compass, _watch, _radio, _terminal, _goggles];
+	{_unit linkitem _x} foreach [_map, _compass, _watch, _radio, _terminal, (_goggles call bis_fnc_selectrandom)];
 
 	//mags in backpack
 	{
@@ -216,39 +258,31 @@ else
 		};
 	} foreach _items;
 
-	//primary weapon mags
+	//mags
 	{
-		_unit addmagazines _x;
-	} foreach _primarymags;
-
-	//launcher mags
-	{
-		_unit addmagazines _x;
-	} foreach _secondarymags;
-
-	//handgun mags
-	{
-		_unit addmagazines _x;
-	} foreach _handgunmags;
-
+		{
+			_unit addmagazines _x;
+		} foreach _x;
+	} foreach [(_primaryfinal select 1),(_secondaryfinal select 1),(_handgunfinal select 1)];
+	
 	//weapons
 	{
 		_unit addweapon _x;
-	} foreach [_primary, _secondary, _handgun, _binos];
-
+	} foreach [(_primaryfinal select 0),(_secondaryfinal select 0),(_handgunfinal select 0), (_binosfinal)];
+	
 	//attachments
 	{
-		_unit addPrimaryWeaponItem _x;
-	} foreach _primaryattach;
-
+		_unit addprimaryweaponitem _x;
+	} foreach (_primaryattach call bis_fnc_selectrandom);
 	{
-		_unit addHandgunItem _x;
-	} foreach _handgunattach;
-
+		_unit addsecondaryweaponitem _x;
+	} foreach (_secondaryattach call bis_fnc_selectrandom);
 	{
-		_unit addsecondaryWeaponItem _x;
-	} foreach _secondaryattach;
+		_unit addhandgunitem _x;
+	} foreach (_handgunattach call bis_fnc_selectrandom);
+	diag_log format ["attachments: %1", primaryweaponitems _unit + secondaryweaponitems _unit + handgunitems _unit - [""]]
 };
+diag_log "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
 
 // This variable simply tracks the progress of the gear assignation process, for other scripts to reference.
 _unit setVariable ["f_var_assignGear_done",true,true];

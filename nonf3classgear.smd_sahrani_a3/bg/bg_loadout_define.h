@@ -6,13 +6,13 @@ class bg_loadout_define
 		{
 			class type
 			{
-				uniform = "";
-				helmet = "";
-				vest = "";
-				pack = "";
-				facewear = "";
-				goggles = "";
-				binos = "";
+				uniform[] = {""};
+				helmet[] = {""};
+				vest[] = {""};
+				pack[] = {""};
+				facewear[] = {""};
+				goggles[] = {""};
+				binos[] = {""};
 				map = "ItemMap";
 				terminal = "ItemGPS";
 				radio = "ItemRadio";
@@ -25,17 +25,12 @@ class bg_loadout_define
 				items[] = {{"",0}};
 				mags[] = {{"",0}};
 				
-				primary = "";
-				primarymags[] = {{"",0}};
-				primaryattach[] = {""};
-				
-				handgun = "";
-				handgunmags[] = {{"",0}};
-				handgunattach[] = {""};
-				
-				secondary = "";
-				secondarymags[] = {{"",0}};
-				secondaryattach[] = {""};
+				primary[] = {{"",{{"",0}},{{""}}}};
+				primaryattach[] = {{"none"}};
+				handgun[] = {{"",{{"",0}},{{""}}}};
+				handgunattach[] = {{"none"}};
+				secondary[] = {{"",{{"",0}},{{""}}}};
+				secondaryattach[] = {{"none"}};
 			};
 			class cargotype
 			{
@@ -55,21 +50,21 @@ class bg_loadout_define
 				packs2[] = {{"",0}};
 				packs3[] = {{"",0}};
 				// redundant properties because cargos tend to have lots of things
-				// redefining an entire property to add a single element is dumb
+				// and redefining an entire property to add one thing is dumb
 			};
 		};
 	}; // define subclasses below
 	
 	class west : side
 	{
-		class faction
+		class faction : faction
 		{
-			class type
+			class type : type
 			{
-				uniform = "U_B_CombatUniform_mcam";
+				uniform[] = {"U_B_CombatUniform_mcam"};
 			};
 			
-			class cargotype {};
+			class cargotype : cargotype {};
 		};
 		
 		#include "gear_nato.h"
@@ -81,14 +76,14 @@ class bg_loadout_define
 	
 	class east : side
 	{
-		class faction
+		class faction : faction
 		{
-			class type
+			class type : type
 			{
-				uniform = "U_O_CombatUniform_ocamo";
+				uniform[] = {"U_O_CombatUniform_ocamo"};
 			};
 			
-			class cargotype {};
+			class cargotype : cargotype {};
 		};
 		
 		#include "gear_csat.h"
@@ -98,14 +93,14 @@ class bg_loadout_define
 	
 	class guer : side
 	{
-		class faction
+		class faction : faction
 		{
-			class type
+			class type : type
 			{
-				uniform = "U_I_CombatUniform";
+				uniform[] = {"U_I_CombatUniform"};
 			};
 			
-			class cargotype {};
+			class cargotype : cargotype {};
 		};
 		
 		#include "gear_aaf.h"
@@ -114,14 +109,14 @@ class bg_loadout_define
 	
 	class civ : side
 	{
-		class faction
+		class faction : faction
 		{
-			class type
+			class type : type
 			{
-				uniform = "U_C_Poloshirt_blue";
+				uniform[] = {"U_C_Poloshirt_blue"};
 			};
 			
-			class cargotype {};
+			class cargotype : cargotype {};
 		};
 		
 		#include "gear_civ.h"

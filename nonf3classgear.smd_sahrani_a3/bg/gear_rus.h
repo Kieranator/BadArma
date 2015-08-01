@@ -2,12 +2,12 @@ class rhs_faction_msv : faction
 {
 	class base : type
 	{
-		uniform = "rhs_uniform_flora_patchless";
-		helmet = "rhs_6b27m";
-		vest = "rhs_6b23_6sh92";
-		pack = "rhs_sidor";
+		uniform[] = {"rhs_uniform_flora_patchless"};
+		helmet[] = {"rhs_6b27m"};
+		vest[] = {"rhs_6b23_6sh92"};
+		pack[] = {"rhs_sidor"};
 		
-		#include "weapon_ak74.h"
+		#include "weapon_ak74m.h"
 	};
 	
 	class r : base
@@ -17,11 +17,11 @@ class rhs_faction_msv : faction
 	
 	class rat : r
 	{
-		secondary = "rhs_weap_rpg26";
+		#include "weapon_rpg7.h"
 	};
 	
 	class aar : r
 	{
-		packitems[] = {{"Binocular",1}};
+		binos[] = {"Binocular"};
 	};
 };

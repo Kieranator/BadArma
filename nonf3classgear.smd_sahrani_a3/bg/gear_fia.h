@@ -2,9 +2,9 @@ class blu_g_f : faction
 {
 	class base : type
 	{
-		uniform = "U_BG_Guerilla1_1";
-		helmet = "H_Bandanna_surfer";
-		vest = "V_Chestrig_oli";
+		uniform[] = {"U_BG_Guerilla1_1"};
+		helmet[] = {"H_Bandanna_surfer"};
+		vest[] = {"V_Chestrig_oli"};
 		
 		#include "weapon_trg.h"
 	};
@@ -16,7 +16,7 @@ class blu_g_f : faction
 	
 	class aar : r
 	{
-		packitems[] = {{"Binocular",1}};
-		pack = "B_AssaultPack_rgr";
+		binos[] = {"Binocular"};
+		pack[] = {"B_AssaultPack_rgr"};
 	};
 };
