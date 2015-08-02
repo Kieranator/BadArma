@@ -30,7 +30,7 @@ class blu_f : faction
 	class aar : r
 	{
 		packmags[] = {{"100Rnd_65x39_caseless_mag",3},{"100Rnd_65x39_caseless_mag_Tracer",1}};
-		primaryattach[] = {"optic_Aco"};
+		primaryattach[] = {{"optic_Aco"}};
 		binos[] = {"Binocular"};
 	};
 	

@@ -13,7 +13,7 @@ private
 	"_meditems", "_items", "_packitems", "_packmags",
 	"_primary", "_primaryfinal","_primaryattach", "_secondary", "_secondaryfinal","_secondaryattach", "_handgun", "_handgunfinal","_handgunattach", "_binos", "_binosfinal",
 	"_weapons1", "_weapons2", "_weapons3", "_mags1", "_mags2", "_mags3", "_items1", "_items2", "_items3", "_packs1", "_packs2", "_packs3",
-	"_gearvalue", "_gearname"
+	"_gearvalue", "_gearname", "_classtype", "_wtc"
 ];
 
 _typeofUnit = toLower (_this select 0);
@@ -22,6 +22,17 @@ _unitSidestring = tolower (str(side _unit));
 
 diag_log "___________________________________________";
 diag_log format["Gearing ""%1"": %2, %3", _unit, _unitsidestring, _faction];
+
+
+// A public variable is set on the unit, indicating their type. This is mostly relevant for the F3 respawn component
+_unit setVariable ["f_var_assignGear",_typeofUnit,true];
+
+// This variable simply tracks the progress of the gear assignation process, for other scripts to reference.
+_unit setVariable ["f_var_assignGear_done",false,true];
+
+// Prevent BIS Randomisation System
+_unit setVariable ["BIS_enableRandomization", false];
+
 
 // optional third argument to set faction
 if(count _this > 2) then
@@ -41,8 +52,12 @@ if(count _this > 2) then
 		case ("usarmyucp") : {_faction = "rhs_faction_usarmy_wd"};
 		case ("rus") : {_faction = "rhs_faction_msv"};
 	};
-		
-	// if argument is given, unit gets that faction's gear regardless of side
+};
+// if third argument is given, unit gets that faction's gear regardless of side
+// empty vehicles also need this because they init as side CIV regardless of faction
+// always include a faction when calling function on a crate, vanilla faction is "Default"
+if ( (count _this > 2) || (!(_unit iskindof "man") && (_unitsidestring == "civ" && _faction != "civ_f")) ) then
+{
 	if !(isclass (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction)) then
 	{
 		{
@@ -54,17 +69,8 @@ if(count _this > 2) then
 	};
 };
 
-// A public variable is set on the unit, indicating their type. This is mostly relevant for the F3 respawn component
-_unit setVariable ["f_var_assignGear",_typeofUnit,true];
 
-// This variable simply tracks the progress of the gear assignation process, for other scripts to reference.
-_unit setVariable ["f_var_assignGear_done",false,true];
-
-// Prevent BIS Randomisation System
-_unit setVariable ["BIS_enableRandomization", false];
-
-
-//defaulting, not quite as good as bg_loadout_selection yet
+//defaulting
 _sideexists = isclass (missionconfigfile >> "bg_loadout_define" >> _unitSidestring);
 _factionexists = isclass (missionconfigfile >> "bg_loadout_define" >> _unitSidestring >> _faction);
 _typeexists = isclass (missionconfigfile >> "bg_loadout_define" >> _unitSidestring >> _faction >> _typeofunit);
@@ -89,52 +95,32 @@ diag_log format ["%1: %2 >> %3 >> %4 final", _unit, _unitsidestring, _faction, _
 
 //vars
 
+// only generate vars from unit's type class
+_classtype = "type";
+if !(_unit iskindof "man") then
+{
+	_classtype = "cargotype";
+};
+
+// generates vars from description.ext
 _gearvalue = "";
 _gearname = "";
-
-// generates vars from description.ext, slower than f3 e.g. 31.3416 ms
-if (_unit iskindof "man") then
-// man types
+for "_x" from 0 to (count (missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> _classtype) - 1) do
 {
-	for "_x" from 0 to (count (missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "type") - 1) do
+	_gearname = configname ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> _classtype) select _x);
+	
+	if (isarray ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> _classtype) select _x)) then
 	{
-		_gearname = configname ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "type") select _x);
-		
-		if (isarray ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "type") select _x)) then
-		{
-			_gearValue = str (getarray (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
-		}
-		else
-		{
-			_gearValue = str (gettext (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
-		};
-		
-		_code = format ["_%1 = %2", _gearName, _gearValue];
-		diag_log format ["type: %1 : _code: %2 ", _unit, _code];
-		call compile _code;
-	};
-}
-
-// cargo types
-else
-{
-	for "_x" from 0 to (count (missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "cargotype") - 1) do
+		_gearValue = str (getarray (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
+	}
+	else
 	{
-		_gearname = configname ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "cargotype") select _x);
-		
-		if (isarray ((missionconfigfile >> "bg_loadout_define" >> "side" >> "faction" >> "cargotype") select _x)) then
-		{
-			_gearValue = str (getarray (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
-		}
-		else
-		{
-			_gearValue = str (gettext (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
-		};
-		
-		_code = format ["_%1 = %2", _gearName, _gearValue];
-		//diag_log format ["cargotype: %1 : _code: %2 ", _unit, _code];
-		call compile _code;
+		_gearValue = str (gettext (missionconfigfile >> "bg_loadout_define" >> _unitsidestring >> _faction >> _typeofunit >> _gearname));
 	};
+	
+	_code = format ["_%1 = %2", _gearName, _gearValue];
+	//diag_log format ["type: %1 : _code: %2 ", _unit, _code];
+	call compile _code;
 };
 
 
