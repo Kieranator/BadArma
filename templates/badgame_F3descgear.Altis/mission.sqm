@@ -42,7 +42,7 @@ class Mission
 		"A3_Air_F_Heli_Heli_Light_01",
 		"a3_air_f_heli_light_01",
 		"lop_c_men",
-		"SUD_RUSSIANS"
+		"rhs_c_a2port_air"
 	};
 	addOnsAuto[]=
 	{
@@ -80,7 +80,7 @@ class Mission
 		"a3_weapons_f_ammoboxes",
 		"A3_Air_F_Heli_Heli_Light_01",
 		"a3_air_f_heli_light_01",
-		"SUD_RUSSIANS",
+		"rhs_c_a2port_air",
 		"a3_map_altis"
 	};
 	randomSeed=11823142;
@@ -8404,7 +8404,7 @@ class Mission
 			position[]={8984.4893,17.269625,7890.877};
 			id=557;
 			side="EMPTY";
-			vehicle="SUD_MI48_RU";
+			vehicle="RHS_Mi24V_vvs";
 			leader=1;
 			skill=0.60000002;
 			text="VehAAF_AH1";

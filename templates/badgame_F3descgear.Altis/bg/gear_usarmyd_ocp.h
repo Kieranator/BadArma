@@ -2,10 +2,10 @@ class rhs_faction_usarmy_d : faction
 {
 	class base : type
 	{
-		uniform = "rhs_uniform_cu_ocp";
-		helmet = "rhsusf_ach_helmet_ocp";
-		vest = "rhsusf_iotv_ocp_Rifleman";
-		pack = "rhsusf_assault_eagleaiii_ocp";
+		uniform[] = {"rhs_uniform_cu_ocp"};
+		helmet[] = {"rhsusf_ach_helmet_ocp"};
+		vest[] = {"rhsusf_iotv_ocp_Rifleman"};
+		pack[] = {"rhsusf_assault_eagleaiii_ocp"};
 		
 		#include "weapon_m4.h"
 	};
@@ -17,7 +17,15 @@ class rhs_faction_usarmy_d : faction
 	
 	class rat : r
 	{
-		secondary = "rhs_weap_M136";
+		secondary[] =
+		{
+			{
+				"rhs_weap_m136",
+				{
+					{"",0}
+				}
+			}
+		};
 	};
 	
 	class ar : base
@@ -30,6 +38,6 @@ class rhs_faction_usarmy_d : faction
 	class aar : r
 	{
 		packmags[] = {{"100Rnd_65x39_caseless_mag",3},{"100Rnd_65x39_caseless_mag_Tracer",1}};
-		packitems[] = {{"Binocular",1}};
+		binos[] = {"Binocular"};
 	};
 };
