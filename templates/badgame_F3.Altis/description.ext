@@ -57,6 +57,7 @@ respawnTemplates[] = {"Group","Spectator","f_JIP","EndMission"};
 	functions, but will always give a medium equip load
 */
 
+/*
 //Loadout Settings
 class bg_loadout_selection
 {
@@ -86,6 +87,39 @@ class bg_loadout_selection
 	}; 
 
 };
+*/
+
+// above pending replacement by new system (wow!)
+// uncomment + change lines in bgmf_equip and bgmf_uniform to set gear based on side
+// else, gear is determined by unit faction
+// see the file below for more info on loadouts + factions
+#include "bg\bg_loadout_define.h"
+
+// available equipment sets:
+// nato, csat, aaf, civ, fia, rus, usarmyocp, usarmyucp
+
+// available uniform sets:
+// nato, csat, aaf, civ, fia, rus, usarmyocp, usarmyucp
+
+// equipment class properties set that side's goggles, binos, map, terminal, radio, compass, watch, items, and mags
+class bgmf_equip
+{
+	west = "nato";
+	east = "csat";
+	guer = "aaf";
+	civ = "fia";
+};
+
+// uniform class properties set that side's uniform, vest, pack, helmet, and facewear
+class bgmf_uniform
+{
+	west = "nato";
+    east = "csat";
+    guer = "aaf";
+    civ  = "fia";
+};
+
+// ============================================================================================
 
 // F3 - Start of Notifications block.
 
