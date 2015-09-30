@@ -29,7 +29,7 @@ _equip_type = _unit_type;
 _uniform_type = _unit_type;
 
 _unitfaction = toLower (faction _unit);
-_unitsidestring = tolower (str(side _unit));
+_unitsidestring = tolower (str(side group _unit));
 
 _equip_side = _unitsidestring;
 _uniform_side = _unitsidestring;
@@ -116,10 +116,10 @@ switch (_equip_faction) do
 // atm isnt working with empty vehicles, just empties their inv. treat them like crates
 if ( (count _this > 2) || (!(_unit iskindof "man") && (_unitsidestring == "civ" && _equip_faction != "civ_f")) || istext (missionconfigfile >> "bgmf_equip" >> _unitSidestring) ) then
 {
-	if !(isclass (missionconfigfile >> "bg_loadout_define" >> _equip_side >> _equip_faction)) then
+	if !(isclass (configfile >> "bg_loadout_define" >> _equip_side >> _equip_faction)) then
 	{
 		{
-			if (isclass (missionconfigfile >> "bg_loadout_define" >> _x >> _equip_faction)) exitwith
+			if (isclass (configfile >> "bg_loadout_define" >> _x >> _equip_faction)) exitwith
 			{
 				_equip_side = _x;
 			};
@@ -129,10 +129,10 @@ if ( (count _this > 2) || (!(_unit iskindof "man") && (_unitsidestring == "civ" 
 
 if (count _this > 3 || istext (missionconfigfile >> "bgmf_uniform" >> _uniform_side)) then 
 {
-	if !(isclass (missionconfigfile >> "bg_loadout_define" >> _uniform_side >> _uniform_faction)) then
+	if !(isclass (configfile >> "bg_loadout_define" >> _uniform_side >> _uniform_faction)) then
 	{
 		{
-			if (isclass (missionconfigfile >> "bg_loadout_define" >> _x >> _uniform_faction)) exitwith
+			if (isclass (configfile >> "bg_loadout_define" >> _x >> _uniform_faction)) exitwith
 			{
 				_uniform_side = _x;
 			};
@@ -143,12 +143,12 @@ if (count _this > 3 || istext (missionconfigfile >> "bgmf_uniform" >> _uniform_s
 
 // side, faction, type class defaulting
 
-_uniform_side_exists = isclass (missionconfigfile >> "bg_loadout_define" >> _uniform_side);
-_equip_side_exists = isclass (missionconfigfile >> "bg_loadout_define" >> _equip_side);
-_uniform_faction_exists = isclass (missionconfigfile >> "bg_loadout_define" >> _uniform_side>> _uniform_faction);
-_equip_faction_exists = isclass (missionconfigfile >> "bg_loadout_define" >> _equip_side>> _equip_faction);
-_equip_type_exists = isclass (missionconfigfile >> "bg_loadout_define" >> _equip_side >> _equip_faction >> _equip_type);
-_uniform_type_exists = isclass (missionconfigfile >> "bg_loadout_define" >> _uniform_side >> _uniform_faction >> _uniform_type);
+_uniform_side_exists = isclass (configfile >> "bg_loadout_define" >> _uniform_side);
+_equip_side_exists = isclass (configfile >> "bg_loadout_define" >> _equip_side);
+_uniform_faction_exists = isclass (configfile >> "bg_loadout_define" >> _uniform_side>> _uniform_faction);
+_equip_faction_exists = isclass (configfile >> "bg_loadout_define" >> _equip_side>> _equip_faction);
+_equip_type_exists = isclass (configfile >> "bg_loadout_define" >> _equip_side >> _equip_faction >> _equip_type);
+_uniform_type_exists = isclass (configfile >> "bg_loadout_define" >> _uniform_side >> _uniform_faction >> _uniform_type);
 
 if !(_uniform_side_exists) then
 {
@@ -161,20 +161,20 @@ if !(_equip_side_exists) then
 
 if !(_uniform_faction_exists) then
 {
-	_uniform_faction = configname ((missionconfigfile >> "bg_loadout_define" >> _uniform_side) select 0);
+	_uniform_faction = configname ((configfile >> "bg_loadout_define" >> _uniform_side) select 0);
 };
 if !(_equip_faction_exists) then
 {
-	_equip_faction = configname ((missionconfigfile >> "bg_loadout_define" >> _equip_side) select 0);
+	_equip_faction = configname ((configfile >> "bg_loadout_define" >> _equip_side) select 0);
 };
 
 if !(_equip_type_exists) then
 {
-	_equip_type = configname ((missionconfigfile >> "bg_loadout_define" >> _equip_side >> _equip_faction) select 0);
+	_equip_type = configname ((configfile >> "bg_loadout_define" >> _equip_side >> _equip_faction) select 0);
 };
 if !(_equip_type_exists) then
 {
-	_uniform_type = configname ((missionconfigfile >> "bg_loadout_define" >> _uniform_side >> _uniform_faction) select 0);
+	_uniform_type = configname ((configfile >> "bg_loadout_define" >> _uniform_side >> _uniform_faction) select 0);
 };
 
 
@@ -200,7 +200,7 @@ _classes = [];
 	_properties pushback _x;
 } foreach configproperties 
 	[
-	missionconfigfile >> "bg_loadout_define" >> _uniform_side >> _uniform_faction >> _uniform_type,
+	configfile >> "bg_loadout_define" >> _uniform_side >> _uniform_faction >> _uniform_type,
 	"!isclass _x && (configname _x) in [""uniform"",""helmet"",""vest"",""pack"",""facewear""]"
 	];
 
@@ -208,7 +208,7 @@ _classes = [];
 	_properties pushback _x;
 } foreach configproperties 
 	[
-	missionconfigfile >> "bg_loadout_define" >> _equip_side >> _equip_faction >> _equip_type, 
+	configfile >> "bg_loadout_define" >> _equip_side >> _equip_faction >> _equip_type, 
 	"!isclass _x && !((configname _x) in [""uniform"",""helmet"",""vest"",""pack"",""facewear""])"
 	];
 	
@@ -216,7 +216,7 @@ _classes = [];
 
 {
 	_classes pushback _x;
-} foreach configproperties [missionconfigfile >> "bg_loadout_define" >> _equip_side >> _equip_faction >> _equip_type, "isclass _x"];
+} foreach configproperties [configfile >> "bg_loadout_define" >> _equip_side >> _equip_faction >> _equip_type, "isclass _x"];
 
 // use the collected property names to define variables of the same name
 {
@@ -252,7 +252,7 @@ _secondary = [];
 	if (str _x == "[]") then
 	{
 		_wtc = _x;
-		_wtc set [0, (missionconfigfile >> "bg_loadout_define" >> "weapon")];
+		_wtc set [0, (configfile >> "bg_loadout_define" >> "weapon")];
 	};
 } foreach [_primary,_handgun,_secondary];
 
