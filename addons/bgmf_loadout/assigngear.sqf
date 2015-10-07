@@ -309,7 +309,7 @@ else
 	_secondaryfinal = _secondary select floor(random (count _secondary));
 	_handgunfinal = _handgun select floor(random (count _handgun));
 	_binosfinal = _binos call bis_fnc_selectrandom;
-	
+diag_log format ["|assigngear line 312| unit %8 | eq: %1, %2, %3 | uni: %4, %5, %6 | primary %7",_equip_side,_equip_faction,_equip_type, _uniform_side,_uniform_faction,_uniform_type, gettext(_primaryfinal >> "wepname"), _unit];
 	//clear unit
 	removeBackpack _unit;
 	removeAllWeapons _unit;

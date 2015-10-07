@@ -70,16 +70,11 @@ _unitClasses = [
 // ====================================================================================
 
 // Interpret parameters
-if (typename _this == "OBJECT" || typename _this == "ARRAY") then
-{
-	if (typename _this == "OBJECT") then 
+_units = if (isnil "_this") then { [] } else { _this };
+
+if (typename _units == "OBJECT") then 
 	{
-		_units = [_this];
-	}
-	else
-	{
-		_units = _this;
-	};
+	_units = [_units];
 }
 else
 {
@@ -110,7 +105,7 @@ else
 			
 				_geararray = [_x select 1, _unit];
 				if (_factionparam) then {_geararray append [_unitfaction,_unitfaction]};
-				
+				diag_log format ["global |line 108| geararray: %1 |", _geararray];
 				[_geararray, "bg_fnc_assignGear", _unit,false,true] call BIS_fnc_MP;
 			};
 		} forEach _unitClasses;
