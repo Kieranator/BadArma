@@ -1,0 +1,6 @@
+///////<HEADER>///////
+prefix=bgmf_loadout
+Mikero=DePbo.dll
+Pbo Type is: Arma Addon
+Sha: '9037CFF08B7D5A8D20E8774D7C77ED92CE0728B2'
+//////</HEADER>//////

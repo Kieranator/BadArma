@@ -240,7 +240,7 @@ _secondary = [];
 {
 	switch (getNumber (configFile >> "cfgWeapons" >> gettext (_x >> "wepname") >> "type")) do
 	{
-		default {diag_log format ["bg_assigngear: class %1 not primary, handgun, or secondary", configname _x];};
+		default {diag_log format ["|assigngear line 243| class %1 not primary, handgun, or secondary", _x];};
 		case (1) : {_primary pushback _x};
 		case (2) : {_handgun pushback _x};
 		case (4) : {_secondary pushback _x};
