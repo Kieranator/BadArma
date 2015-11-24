@@ -48,7 +48,7 @@ _fnc_wepMags = {
 
 // SET UP KEY VARIABLES
 
-_text = "<br />NOTE: The loadout shown below is only accurate at mission start.<br />
+_text = "<br />Loadout shown below is only accurate at mission start.<br />
 <br />";
 _stuff = [];
 

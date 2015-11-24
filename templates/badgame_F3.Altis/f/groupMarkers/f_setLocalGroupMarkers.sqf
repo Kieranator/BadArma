@@ -91,9 +91,6 @@ switch (_unitfaction) do
 		["GrpNATO_TH8",  9, "TH8", "ColorOrange"] spawn f_fnc_localGroupMarker;
 
 		["GrpNATO_AH1",  9, "AH1", "ColorRed"] spawn f_fnc_localGroupMarker;
-
-
-
 	};
 
 // ====================================================================================
@@ -153,7 +150,6 @@ switch (_unitfaction) do
 		["GrpCSAT_TH8",  9, "TH8", "ColorOrange"] spawn f_fnc_localGroupMarker;
 
 		["GrpCSAT_AH1",  9, "AH1", "ColorRed"] spawn f_fnc_localGroupMarker;
-
 	};
 
 
@@ -210,7 +206,6 @@ switch (_unitfaction) do
 		["GrpAAF_TH4",  9, "TH4", "ColorOrange"] spawn f_fnc_localGroupMarker;
 
 		["GrpAAF_AH1",  9, "AH1", "ColorRed"] spawn f_fnc_localGroupMarker;
-
 	};
 // ====================================================================================
 
@@ -269,9 +264,6 @@ switch (_unitfaction) do
 		["GrpFIA_TH8",  9, "TH8", "ColorOrange"] spawn f_fnc_localGroupMarker;
 
 		["GrpFIA_AH1",  9, "AH1", "ColorRed"] spawn f_fnc_localGroupMarker;
-
-
-
 	};
 
 // ====================================================================================
@@ -331,8 +323,6 @@ switch (_unitfaction) do
 		["GrpOFIA_TH8",  9, "TH8", "ColorOrange"] spawn f_fnc_localGroupMarker;
 
 		["GrpOFIA_AH1",  9, "AH1", "ColorRed"] spawn f_fnc_localGroupMarker;
-
-
 	};
 
 // ====================================================================================
@@ -392,8 +382,6 @@ switch (_unitfaction) do
 		["GrpIFIA_TH8",  9, "TH8", "ColorOrange"] spawn f_fnc_localGroupMarker;
 
 		["GrpIFIA_AH1",  9, "AH1", "ColorRed"] spawn f_fnc_localGroupMarker;
-
-
 	};
 
 };

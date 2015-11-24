@@ -20,6 +20,7 @@ onLoadMission = "Made with the F3 Mission Development Framework";
 author = "*** Insert mission author name here. ***";
 loadScreen = "loadLogo.jpg";
 overviewPicture = "overviewLogo.jpg";
+overviewText = "";
 
 // ============================================================================================
 
@@ -42,82 +43,37 @@ respawnTemplates[] = {"Group","Spectator","f_JIP","EndMission"};
 
 // F3 - Folk Assign Gear Script
 // Credits: Please see the F2 online manual (http://www.ferstaberinde.com/f3/en/)
-// Parameter Removed - default set in f\assignGear\fn_assignGear.sqf, _loadout
+// Parameter Removed
 
-/*
-	sets equipment load. currently, new syntax is:
-
-	["co",this,"blu_f", 2 ] call f_fnc_assignGear;
-	
-	0 light, 1 medium (default), 2 heavy, 3+ guarantees no gear
-	negative values may result in light equip, depending on class
-	light often adds more gear without adding a backpack
-
-	["co",this] call f_fnc_assignGear;
-	functions, but will always give a medium equip load
-*/
-
-/*
-//Loadout Settings
-class bg_loadout_selection
-{
-	//Uncomment to use faction based loadouts
-	class west
-	{
-		default = "f_assignGear_nato.sqf";
-		// rhs_faction_usarmy_14 = "f_assignGear_usarmy.sqf";
-		// blu_f = "f_assignGear_nato.sqf";
-		// blu_g_f = "f_assignGear_fia.sqf";
-	};
-	class east
-	{
-		default = "f_assignGear_csat.sqf";
-		// opf_f = "f_assignGear_csat.sqf";
-		// opf_g_f = "f_assignGear_fia.sqf";
-	};
-	class guer
-	{
-		default = "f_assignGear_aaf.sqf";
-		// ind_f = "f_assignGear_aaf.sqf";
-		// ind_g_f = "f_assignGear_fia.sqf";
-	};
-	class civ
-	{
-		default = "f_assignGear_fia.sqf";
-	}; 
-
-};
-*/
-
-// above pending replacement by new system (wow!)
 // uncomment + change lines in bgmf_equip and bgmf_uniform to set gear based on side
 // else, gear is determined by unit faction
-// see the file below for more info on loadouts + factions
+// see the file below + assigngear.sqf for more info on loadouts + factions
 #include "bg\bg_loadout_define.h"
 
 // available equipment sets:
-// nato, csat, aaf, civ, fia, rus, usarmyocp, usarmyucp
+// nato, csat, aaf, civ, fia, rus, usarmyocp, usarmyucp, redarmy, nazi
 
 // available uniform sets:
-// nato, csat, aaf, civ, fia, rus, usarmyocp, usarmyucp
+// nato, csat, aaf, civ, fia, rus, usarmyocp, usarmyucp, redarmy, nazi
 
-// equipment class properties set that side's goggles, binos, map, terminal, radio, compass, watch, items, and mags
+// equipment class properties set that side's weapons, goggles, binos, map, terminal, radio, compass, watch, items, and mags
 class bgmf_equip
 {
-	west = "nato";
-	east = "csat";
-	guer = "aaf";
-	civ = "fia";
+	//west = "nato";
+	//east = "csat";
+	//guer = "aaf";
+	//civ = "fia";
 };
 
 // uniform class properties set that side's uniform, vest, pack, helmet, and facewear
 class bgmf_uniform
 {
-	west = "nato";
-    east = "csat";
-    guer = "aaf";
-    civ  = "fia";
+	//west = "nato";
+    //east = "csat";
+    //guer = "aaf";
+    //civ  = "fia";
 };
+
 
 // ============================================================================================
 
@@ -212,15 +168,14 @@ class Params
 
 // ============================================================================================
 
-
-// ============================================================================================
-
 // F3 - Radio Systems Support
 // Removed
+
 // ============================================================================================
 
 // F3 - Medical Systems Support
 // Removed
+
 // ============================================================================================
 
 // F3 - Mission Timer/Safe Start
@@ -278,6 +233,7 @@ class Params
 // F3 - AI Skill Selector
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 // Removed
+
 // ============================================================================================
 
 // F3 - Caching
@@ -394,6 +350,7 @@ class CfgRespawnTemplates
 
 // Menu components for the Spectator Script
 // Removed
+
 // ============================================================================================
 
 // F3 - Functions
@@ -478,6 +435,18 @@ class CfgFunctions
 			class safety{};
 		};
 	};
+	
+	class bg
+	{
+		class common
+		{
+			file = "bg";
+
+			class assigngear{};
+			class assigngearglobal{};
+		};
+	};
+	
 };
 
 

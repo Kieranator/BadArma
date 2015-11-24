@@ -192,7 +192,7 @@ switch (_mkrType) do
 while {{!isNull _x} count units _grp > 0} do
 {
 	_mkrName setMarkerPosLocal [(getPos leader _grp select 0),(getPos leader _grp select 1)];
-	sleep 3;
+	sleep 3; // decreased from default 6
 };
 
 

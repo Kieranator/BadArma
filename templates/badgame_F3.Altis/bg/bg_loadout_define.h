@@ -1,5 +1,6 @@
 class bg_loadout_define 
 {
+
 	class weapon // base class for defining weapons
 	{
 		wepname = ""; // classname of weapon
@@ -21,37 +22,56 @@ class bg_loadout_define
 	// the mx file is commented
 	
 	//rifles
-	#include "weapon_mx.h"
-	#include "weapon_mk20.h"
-	#include "weapon_katiba.h"
-	#include "weapon_trg.h"
-	#include "weapon_ak74m.h"
-	#include "weapon_m4a1.h"
-	#include "weapon_m16a4.h"
+	#include "weapons\weapon_mx.h"
+	#include "weapons\weapon_mk20.h"
+	#include "weapons\weapon_katiba.h"
+	#include "weapons\weapon_trg.h"
+	#include "weapons\weapon_ak74m.h"
+	#include "weapons\weapon_m4a1.h"
+	#include "weapons\weapon_m16a4.h"
+	#include "weapons\weapon_m16a1.h"
+	#include "weapons\weapon_g43.h"
+	#include "weapons\weapon_k98.h"
+	#include "weapons\weapon_mosin.h"
+	#include "weapons\weapon_svt40.h"
+	#include "weapons\weapon_m14.h"
+	#include "weapons\weapon_m1carbine.h"
+	#include "weapons\weapon_sks.h"
+	
+	//smg
+	#include "weapons\weapon_mp18-44.h"
+	#include "weapons\weapon_pps.h"
+	
+	//shotguns
+	#include "weapons\weapon_m590.h"
 	
 	//autorifles/MGs
-	#include "weapon_spmg.h"
-	#include "weapon_mk200.h"
-	#include "weapon_navid.h"
-	#include "weapon_zafir.h"
-	#include "weapon_rpk.h"
-	#include "weapon_pkp.h"
-	#include "weapon_m249.h"
-	#include "weapon_m240.h"
+	#include "weapons\weapon_spmg.h"
+	#include "weapons\weapon_mk200.h"
+	#include "weapons\weapon_navid.h"
+	#include "weapons\weapon_zafir.h"
+	#include "weapons\weapon_rpk.h"
+	#include "weapons\weapon_pkp.h"
+	#include "weapons\weapon_m249.h"
+	#include "weapons\weapon_m240.h"
+	#include "weapons\weapon_mg30-42.h"
+	#include "weapons\weapon_dp.h"
+	#include "weapons\weapon_m60.h"
 	
 	//launchers
-	#include "weapon_m136.h"
-	#include "weapon_titan.h"
-	#include "weapon_nlaw.h"
-	#include "weapon_maaws.h"
-	#include "weapon_igla.h"
-	#include "weapon_rpg26.h"
-	#include "weapon_rpg42.h"
-	#include "weapon_rpg7.h"
-	#include "weapon_stinger.h"
+	#include "weapons\weapon_m136.h"
+	#include "weapons\weapon_titan.h"
+	#include "weapons\weapon_nlaw.h"
+	#include "weapons\weapon_maaws.h"
+	#include "weapons\weapon_igla.h"
+	#include "weapons\weapon_rpg26.h"
+	#include "weapons\weapon_rpg42.h"
+	#include "weapons\weapon_rpg7.h"
+	#include "weapons\weapon_stinger.h"
+	#include "weapons\weapon_panzerschrek.h"
 	
 	
-	class side
+	class define_factions
 	{
 		class faction
 		{
@@ -97,75 +117,20 @@ class bg_loadout_define
 				// and redefining an entire property to add one thing is dumb
 			};
 		};
-	};
-	
-	// faction definitions:
-	
-	class west : side
-	{
-		class faction : faction
-		{
-			class type : type
-			{
-				uniform[] = {"U_B_CombatUniform_mcam"};
-			};
+		
+		
+		// faction definitions:
 			
-			class cargotype : cargotype {};
-		};
-		
-		#include "gear_nato.h"
-		#include "gear_usarmyd_ocp.h"
-		#include "gear_usarmywd_ucp.h"
-		#include "gear_fia.h"
-		
-	};
-	
-	class east : side
-	{
-		class faction : faction
-		{
-			class type : type
-			{
-				uniform[] = {"U_O_CombatUniform_ocamo"};
-			};
+		#include "factions\gear_nato.h"
+		#include "factions\gear_usarmyd_ocp.h"
+		#include "factions\gear_usarmywd_ucp.h"
+		#include "factions\gear_fia.h"
+				
+		#include "factions\gear_csat.h"
+		#include "factions\gear_rus.h"
 			
-			class cargotype : cargotype {};
-		};
+		#include "factions\gear_aaf.h"
 		
-		#include "gear_csat.h"
-		#include "gear_rus.h"
-		
-	};
-	
-	class guer : side
-	{
-		class faction : faction
-		{
-			class type : type
-			{
-				uniform[] = {"U_I_CombatUniform"};
-			};
-			
-			class cargotype : cargotype {};
-		};
-		
-		#include "gear_aaf.h"
-	
-	};
-	
-	class civ : side
-	{
-		class faction : faction
-		{
-			class type : type
-			{
-				uniform[] = {"U_C_Poloshirt_blue"};
-			};
-			
-			class cargotype : cargotype {};
-		};
-		
-		#include "gear_civ.h"
-		
+		#include "factions\gear_civ.h"
 	};
 };

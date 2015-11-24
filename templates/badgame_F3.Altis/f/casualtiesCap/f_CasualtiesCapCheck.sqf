@@ -54,7 +54,7 @@ if(typeName _grpstemp == "SIDE") then // if the variable is any of the side vari
 	{
 		if(_onlyPlayers) then
 		{
-			if((side _x == _grpstemp) && (leader _x in playableUnits)) then
+			if((side _x == _grpstemp) && (leader _x in (playableUnits + switchableunits))) then
 			{
 				_grps set [count _grps,_x]; // Add group to array
 			};

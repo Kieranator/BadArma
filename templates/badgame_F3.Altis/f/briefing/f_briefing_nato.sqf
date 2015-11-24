@@ -14,6 +14,7 @@ _cre = player createDiaryRecord ["diary", ["Credits","
 *** Insert mission credits here. ***
 <br/><br/>
 Made with F3 (http://www.ferstaberinde.com/f3/en/)
+BGMF - kerc, jorsh
 "]];
 
 // ====================================================================================
