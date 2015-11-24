@@ -93,11 +93,11 @@ class rhs_faction_msv : faction
 		packmags[] = {{"rhs_rpg7_PG7VL_mag",3}};
 	};
 	
-	class hatg : matg
+	class hatg : r
 	{
 		pack[] = {"B_AT_01_weapon_F"};
 	};
-	class hatag : matag
+	class hatag : r
 	{
 		pack[] = {"B_HMG_01_support_F"};
 	};

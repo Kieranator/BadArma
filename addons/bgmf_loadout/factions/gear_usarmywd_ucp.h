@@ -1,13 +1,13 @@
-class rhs_faction_usarmy_d : faction
+class rhs_faction_usarmy_wd : faction
 {
 	class base : type
 	{
-		uniform[] = {"rhs_uniform_cu_ocp"};
-		helmet[] = {"rhsusf_ach_helmet_ocp"};
-		vest[] = {"rhsusf_iotv_ocp_Rifleman"};
-		pack[] = {"rhsusf_assault_eagleaiii_ocp"};
+		uniform[] = {"rhs_uniform_cu_ucp"};
+		helmet[] = {"rhsusf_ach_helmet_ucp"};
+		vest[] = {"rhsusf_iotv_ucp_Rifleman"};
+		pack[] = {"rhsusf_assault_eagleaiii_ucp"};
 		
-		class primary : m4a1 {};
+		class primary : m16a4 {};
 	};
 	
 	class r : base
@@ -23,7 +23,7 @@ class rhs_faction_usarmy_d : faction
 	class ar : r
 	{
 		class primary : m249 {};
-		vest[] = {"rhsusf_iotv_ocp_SAW"};
+		vest[] = {"rhsusf_iotv_ucp_SAW"};
 	};
 	
 	class aar : r
@@ -36,11 +36,11 @@ class rhs_faction_usarmy_d : faction
 	{
 		packitems[] = {{"Medikit",1},{"FirstAidKit",10}};
 		mags[] = {{"rhs_mag_an_m8hc", 6}};
-		vest[] = {"rhsusf_iotv_ocp_Medic"};
+		vest[] = {"rhsusf_iotv_ucp_Medic"};
 	};
 	class dm : r
 	{
-		class primary : m4a1
+		class primary : m16a4
 		{
 			optic = "RH_ta31rco";
 			bipod = "rhsusf_acc_harris_bipod";
@@ -48,22 +48,22 @@ class rhs_faction_usarmy_d : faction
 	};
 	class gren : base
 	{
-		class priamry : m4a1_m320 {};
+		class priamry : m16a4_m203 {};
 		mags[] = {{"rhs_mag_m67",2}, {"rhs_mag_an_m8hc", 3}};
-		vest[] = {"rhsusf_iotv_ocp_Grenadier"};
+		vest[] = {"rhsusf_iotv_ucp_Grenadier"};
 	};
 	
 	class ftl : gren
 	{
-		vest[] = {"rhsusf_iotv_ocp_Teamleader"};
+		vest[] = {"rhsusf_iotv_ucp_Teamleader"};
 	};
 	class dc : ftl
 	{
-		class priamry : m4a1_m320
+		class priamry : m16a4_m203
 		{
 			optic = "RH_ta31rco";
 		};
-		vest[] = {"rhsusf_iotv_ocp_Squadleader"};
+		vest[] = {"rhsusf_iotv_ucp_Squadleader"};
 	};
 	class co : dc {};
 	
@@ -94,11 +94,11 @@ class rhs_faction_usarmy_d : faction
 		packmags[] = {{"MAAWS_HEDP",3}};
 	};
 	
-	class hatg : matg
+	class hatg : r
 	{
 		pack[] = {"B_AT_01_weapon_F"};
 	};
-	class hatag : matag
+	class hatag : r
 	{
 		pack[] = {"B_HMG_01_support_F"};
 	};

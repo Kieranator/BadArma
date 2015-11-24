@@ -105,11 +105,11 @@ class blu_g_f : faction
 		packmags[] = {{"RPG32_F",2}};
 	};
 	
-	class hatg : matg
+	class hatg : r
 	{
 		pack[] = {"B_AT_01_weapon_F"};
 	};
-	class hatag : matag
+	class hatag : r
 	{
 		pack[] = {"B_HMG_01_support_F"};
 	};

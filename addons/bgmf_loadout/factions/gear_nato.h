@@ -86,11 +86,11 @@ class blu_f : faction
 		packmags[] = {{"Titan_AT",3}};
 	};
 	
-	class hatg : matg
+	class hatg : r
 	{
 		pack[] = {"B_AT_01_weapon_F"};
 	};
-	class hatag : matag
+	class hatag : r
 	{
 		pack[] = {"B_HMG_01_support_F"};
 	};
@@ -100,12 +100,12 @@ class blu_f : faction
 		class secondary : titanaa {};
 		pack[] = {"B_Carryall_mcamo"};
 	};
-	class msamag : aar
+	class msamag : r
 	{
 		packmags[] = {{"Titan_AA",3}};
 	};
 
 	
-	#include "crate_nato.h"
-	#include "veh_nato.h"
+	#include "crate\crate_nato.h"
+	#include "vehicle\veh_nato.h"
 };

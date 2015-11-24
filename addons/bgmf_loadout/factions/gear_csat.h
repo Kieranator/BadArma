@@ -2,6 +2,7 @@ class opf_f : faction
 {
 	class base : type
 	{
+		uniform[] = {"U_O_CombatUniform_ocamo"};
 		helmet[] = {"H_HelmetO_ocamo"};
 		vest[] = {"V_HarnessO_brn"};
 		pack[] = {"B_AssaultPack_ocamo"};

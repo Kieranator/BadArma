@@ -21,7 +21,7 @@ private ["_units","_unit","_faction","_known","_unitFactions","_unitClasses","_u
 // The factions of all units which should be affected
 
 //need to populate this from missionconfig?
-_unitFactions = ["","blu_f", "rhs_faction_usarmy_wd", "rhs_faction_usarmy_d", "blu_g_f", "ind_f", "opf_f", "rhs_faction_msv", "ind_g_f", "opf_g_f"];
+_unitfactions = ["","blu_f", "rhs_faction_usarmy_wd", "rhs_faction_usarmy_d", "blu_g_f", "ind_f", "opf_f", "rhs_faction_msv", "LIB_RKKA", "LIB_WEHRMACHT"];
 
 // The default gear type picked when no corresponding entry is found in the _unitClasses array
 // Set _defaultclass to "" to let these units keep their default gear
@@ -70,11 +70,16 @@ _unitClasses = [
 // ====================================================================================
 
 // Interpret parameters
-_units = if (isnil "_this") then { [] } else { _this };
-
-if (typename _units == "OBJECT") then 
+if (typename _this == "OBJECT" || typename _this == "ARRAY") then
+{
+	if (typename _this == "OBJECT") then 
 	{
-	_units = [_units];
+		_units = [_this];
+	}
+	else
+	{
+		_units = _this;
+	};
 }
 else
 {
@@ -87,8 +92,7 @@ else
 	_unit = _x;
 	
 	_unitfaction = faction _unit;
-	_factionparam = false;
-	call compile format ["if !(isnil ""bg_param_%1faction"") then {_unitfaction = _unitfactions select bg_param_%1faction; _factionparam = true;};", side _x];
+	call compile format ["if !(isnil ""bg_param_%1faction"") then {_unitfaction = _unitfactions select bg_param_%1faction};", side _x];
 	
 	// Check if the unit was already touched by the F3 Assign Gear Component
 	if (!(_unit getvariable ["f_var_assignGear_done", false]) && (_unit isKindOf "Man")) then 
@@ -100,12 +104,11 @@ else
 			_known = [toLower (_x select 0),toLower (typeOf _unit)] call BIS_fnc_inString;
 
 			// If the unit's classname corresponds to a class in the assignment array, set its gear accordingly
-			if (_known) exitWith
-			{
+			if (_known) exitWith {
 			
 				_geararray = [_x select 1, _unit];
-				if (_factionparam) then {_geararray append [_unitfaction,_unitfaction]};
-				diag_log format ["global |line 108| geararray: %1 |", _geararray];
+				if (_unitfaction != "") then {_geararray append [_unitfaction,_unitfaction]};
+				
 				[_geararray, "bg_fnc_assignGear", _unit,false,true] call BIS_fnc_MP;
 			};
 		} forEach _unitClasses;
@@ -115,7 +118,7 @@ else
 			if (_defaultclass != "") then {
 				
 				_geararray = [_defaultclass, _unit];
-				if (_factionparam) then {_geararray append [_unitfaction,_unitfaction]};
+				if (_unitfaction != "") then {_geararray append [_unitfaction,_unitfaction]};
 			
 				[_geararray, "bg_fnc_assigngear", _unit,false,true] call BIS_fnc_MP;
 			};
