@@ -306,6 +306,7 @@ else
 	// for use if equip faction not defined
 	_unit_magcargo = magazinecargo _unit;
 	_unit_itemcargo = itemcargo _unit;
+	_unit_pack = backpack _unit; // when adding a pack the old one gets dropped instead of deleted
 	
 	if _equip_faction_exists then
 	{
@@ -324,10 +325,11 @@ else
 		
 		if !_uniform_faction_exists then
 		{
+			removebackpack _unit;
 			_unit forceadduniform (uniform _unit);
 			_unit addheadgear (headgear _unit);
 			_unit addvest (vest _unit);
-			_unit addbackpack (backpack _unit);
+			_unit addbackpack _unit_pack;
 		};		
 		removeAllWeapons _unit;
 		removeAllAssignedItems _unit;
@@ -336,6 +338,7 @@ else
 	
 	if _uniform_faction_exists then
 	{
+		removebackpack _unit;
 		//add containers
 		_unit forceadduniform (_uniform call bis_fnc_selectrandom);
 		_unit addheadgear (_helmet call bis_fnc_selectrandom);

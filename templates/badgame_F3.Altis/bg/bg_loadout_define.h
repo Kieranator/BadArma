@@ -59,6 +59,7 @@ class bg_loadout_define
 	#include "weapons\weapon_m60.h"
 	
 	//launchers
+	#include "weapons\weapon_bazooka.h"
 	#include "weapons\weapon_m136.h"
 	#include "weapons\weapon_titan.h"
 	#include "weapons\weapon_nlaw.h"
