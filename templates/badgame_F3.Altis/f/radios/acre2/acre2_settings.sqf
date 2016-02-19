@@ -57,7 +57,7 @@ f_radios_settings_acre2_groups_indfor = ["Alpha","Bravo","Charlie","Delta","Echo
 // ACRE Radio loss settings.
 // Indiciates how much terrian loss should be modelled.
 // Values: 0 no loss, 1 full terrian loss, default: 1
-[1] call acre_api_fnc_setLossModelScale;
+[0] call acre_api_fnc_setLossModelScale;
 
 // ACRE full Duplex
 // Sets the duplex of radio transmissions. If set to true, it means that you will receive transmissions even while talking and multiple people can speak at the same time.
@@ -69,4 +69,4 @@ f_radios_settings_acre2_groups_indfor = ["Alpha","Bravo","Charlie","Delta","Echo
 
 // ACRE can AI hear players?
 // False - AI not hear players, true - AI hear players.
-[false] call acre_api_fnc_setRevealToAI;
+[true] call acre_api_fnc_setRevealToAI;
