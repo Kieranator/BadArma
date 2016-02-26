@@ -11,7 +11,7 @@ if !(isServer) exitWith {};
 
 // DECLARE PRIVATE VARIABLES
 
-private ["_units","_unit","_faction","_known","_unitFactions","_unitClasses"];
+private ["_units","_unit","_faction","_known","_unitFactions","_unitClasses","_spawnFaction"];
 
 // ====================================================================================
 
@@ -66,6 +66,8 @@ _unitClasses = [
 
 // ====================================================================================
 
+
+
 // Interpret parameters
 if (typename _this == "OBJECT") then
 {
@@ -80,7 +82,16 @@ else
 
 	sleep 0.1;
 	_unit = _x;
-
+	_side = side group _unit;
+	
+	switch (_side) do
+	{
+		case west: {_spawnFaction = bg_faction_west;};
+		case east: {_spawnFaction = bg_faction_east;};
+		case resistance: {_spawnFaction = bg_faction_guer;};
+		default {_spawnFaction = "default";};
+	};
+	
 	// Check if the unit was already touched by the F3 Assign Gear Component
 	if (!(_unit getvariable ["f_var_assignGear_done", false]) && {!(_unit in playableUnits) && (_unit isKindOf "Man")}) then {
 
@@ -94,14 +105,14 @@ else
 
 			// If the unit's classname corresponds to a class in the assignment array, set it's gear accordingly
 			if (_known) exitWith {
-				[[_x select 1, _unit], "f_fnc_assignGear", _unit,false,true] call BIS_fnc_MP;
+				[[_x select 1, _unit,_spawnFaction], "f_fnc_assignGear", _unit,false,true] call BIS_fnc_MP;
 			};
 		} forEach _unitClasses;
 
 		// If the class is not in the _unitClasses array
 		if (!_known) then {
 			if (_defaultclass != "") then {
-				[[_defaultclass, _unit], "f_fnc_assignGear", _unit,false,true] call BIS_fnc_MP;
+				[[_defaultclass, _unit,_spawnFaction], "f_fnc_assignGear", _unit,false,true] call BIS_fnc_MP;
 			};
 		};
 

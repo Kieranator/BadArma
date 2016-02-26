@@ -381,6 +381,14 @@ class CfgFunctions
 
 			class nearPlayer{};
 		};
+		class init
+		{
+			class f3_init 
+			{
+				file = "f3_init.sqf";
+				postInit = 1;
+			};
+		};
 		class mpEnd
 		{
 			file = "f\mpEnd";
