@@ -12,7 +12,7 @@ if (!isDedicated && (isNull player)) then
 {
     waitUntil {sleep 0.1; !isNull player};
 };
-
+diag_log "JIP_playerRespawn running!";
 // ====================================================================================
 
 // DECLARE VARIABLES AND FUNCTIONS

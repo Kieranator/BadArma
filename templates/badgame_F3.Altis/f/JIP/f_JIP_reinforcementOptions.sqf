@@ -1,5 +1,5 @@
-#define BG_REJOIN_DISTANCE 40
-#define BG_TELEPORT_DISTANCE 200
+#define BG_REJOIN_DISTANCE 50
+#define BG_TELEPORT_DISTANCE 100
 // F3 - JIP Reinforcement Options
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 // ====================================================================================
@@ -63,28 +63,27 @@ BG_JIP_Teleport =
 
 
     hint "Click Map Location to Teleport";
-    2 cutText ["Click the Map within " + str( BG_TELEPORT_DISTANCE ) + " meters of the group leader","PLAIN",2];
+	["Click the Map within " + str( BG_TELEPORT_DISTANCE ) + " meters of the group leader",0,0.6,5,0] spawn Bis_Fnc_DynamicText;
+    //2 cutText ["Click the Map within " + str( BG_TELEPORT_DISTANCE ) + " meters of the group leader","PLAIN",2];
+	openMap [true, true];
+	onMapSingleClick "[_pos] call BG_JIP_Validate_Click;";
 
-    if (isNil "BG_JIP_DeploymentPeriod") then { diag_log str("WARNING: BG_JIP_DeploymentPeriod is NULL. Report to BG Developement Team: ViperMaul"); };
+	while {!(player getVariable "BG_JIP_TelportCompleted")} Do {
 
-    if (BG_JIP_DeploymentPeriod) then {
-        onMapSingleClick "[_pos] call BG_JIP_Validate_Click;";
+		sleep 0.125;
 
-        while {!(player getVariable "BG_JIP_TelportCompleted")} Do {
+	};
+	
+	// Clean up time
+	diag_log str("BG_JIP_Teleport Clean Up Start");
+	//player removeAction(_this select 2);
+	player setVariable ["BG_JIP_TelportActivated", false];
+	player setVariable ["BG_JIP_TelportCompleted", true];
+	BG_JIP_DeploymentPeriod = false;
+	onMapSingleClick '';
+	openMap [false, false];
+	diag_log str("BG_JIP_Teleport Clean Up Finished");
 
-            sleep 0.125;
-
-        };
-
-        // Clean up time
-        diag_log str("BG_JIP_Teleport Clean Up Start");
-        //player removeAction(_this select 2);
-        player setVariable ["BG_JIP_TelportActivated", false];
-        player setVariable ["BG_JIP_TelportCompleted", true];
-        BG_JIP_DeploymentPeriod = false;
-        onMapSingleClick '';
-        diag_log str("BG_JIP_Teleport Clean Up Finished");
-    };
 };
 
 
@@ -155,7 +154,7 @@ if (_grp != group player) then {
 	[player] joinSilent grpNull;
 
 	if (!isNull _grp) then {
-		[_grp,_joinDistance] execVM "f\JIP\f_JIP_nearTargetGroupCheck.sqf";
+		[_grp,_joinDistance,leader _grp] execVM "f\JIP\f_JIP_nearTargetGroupCheck.sqf";
 		player setVariable ["BG_JIP_Group",_grp];
 		[] spawn BG_JIP_Teleport;
 		["JIP",[format ["Selection successful. Get within %2m of %1 to link up.",name leader _grp,_joinDistance]]] call BIS_fnc_showNotification;

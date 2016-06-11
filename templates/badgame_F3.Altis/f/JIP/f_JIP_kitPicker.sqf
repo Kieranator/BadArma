@@ -11,22 +11,11 @@ KitPickInit =
     USEBUTTON ctrlEnable false;
 
     private "_idx";
-    _idx = COMBO lbAdd "Commander"; COMBO lbSetData [_idx, "co"];
-    _idx = COMBO lbAdd "Deputy Commander"; COMBO lbSetData [_idx, "dc"];
-    COMBO lbAdd "----";
-
-    _idx = COMBO lbAdd "Fire Team Leader"; COMBO lbSetData [_idx, "ftl"];
     _idx = COMBO lbAdd "Automatic Rifleman"; COMBO lbSetData [_idx, "ar"];
     _idx = COMBO lbAdd "Asst. Automatic Rifleman"; COMBO lbSetData [_idx, "aar"];
     _idx = COMBO lbAdd "Rifleman (AT)"; COMBO lbSetData [_idx, "rat"];
-    COMBO lbAdd "----";
 
-    _idx = COMBO lbAdd "Engineer (no repair)"; COMBO lbSetData [_idx, "eng"];
-    COMBO lbAdd "----";
-	
-    _idx = COMBO lbAdd "Rifleman"; COMBO lbSetData [_idx, "r"];
-    _idx = COMBO lbAdd "Carabineer"; COMBO lbSetData [_idx, "car"];
-	_idx = COMBO lbAdd "Submachinegunner"; COMBO lbSetData [_idx, "smg"];
+
 	
     _sel = player getVariable "KitPicker_Selection";
     if (!isNil '_sel') then
