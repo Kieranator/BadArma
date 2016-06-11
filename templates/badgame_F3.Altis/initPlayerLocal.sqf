@@ -4,3 +4,9 @@
 f_script_setGroupIDs = [] execVM "f\setGroupID\f_setGroupIDs.sqf";
 
 // ====================================================================================
+
+
+if (didJip) then
+{
+	[player] execVM "f\JIP\f_JIP_addReinforcementOptionsAction.sqf";
+};
