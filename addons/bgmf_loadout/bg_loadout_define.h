@@ -5,8 +5,8 @@ class bg_loadout_define
 	{
 		wepname = ""; // classname of weapon
 		
-		defmag = ""; // 1 mag of this classname will be loaded in the weapon, intent is to maximize inv space. pending removal?
-		extradefmags = 0; // additional mags of defmag type to add.  pending removal?
+		defmag = ""; // 1 mag of this classname will be loaded in the weapon, intent is to maximize inv space
+		extradefmags = 0; // additional mags of defmag type to add
 		
 		defglmag = ""; // same as defmag but for unerbarrel mags
 		extradefglmags = 0;
@@ -120,18 +120,26 @@ class bg_loadout_define
 		};
 		
 		
+		
 		// faction definitions:
 			
+		#include "factions\gear_aaf.h"
+		#include "factions\gear_civ.h"
+		#include "factions\gear_csat.h"
+		#include "factions\gear_fia.h"
 		#include "factions\gear_nato.h"
+		#include "factions\gear_redarmy.h"
+		#include "factions\gear_rus.h"
 		#include "factions\gear_usarmyd_ocp.h"
 		#include "factions\gear_usarmywd_ucp.h"
-		#include "factions\gear_fia.h"
+		#include "factions\gear_wehrmacht.h"
 				
-		#include "factions\gear_csat.h"
-		#include "factions\gear_rus.h"
 			
-		#include "factions\gear_aaf.h"
 		
-		#include "factions\gear_civ.h"
 	};
+	
+	
+	
+	
+	
 };

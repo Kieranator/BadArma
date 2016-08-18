@@ -120,18 +120,26 @@ class bg_loadout_define
 		};
 		
 		
+		
 		// faction definitions:
 			
+		#include "factions\gear_aaf.h"
+		#include "factions\gear_civ.h"
+		#include "factions\gear_csat.h"
+		#include "factions\gear_fia.h"
 		#include "factions\gear_nato.h"
+		#include "factions\gear_redarmy.h"
+		#include "factions\gear_rus.h"
 		#include "factions\gear_usarmyd_ocp.h"
 		#include "factions\gear_usarmywd_ucp.h"
-		#include "factions\gear_fia.h"
+		#include "factions\gear_wehrmacht.h"
 				
-		#include "factions\gear_csat.h"
-		#include "factions\gear_rus.h"
 			
-		#include "factions\gear_aaf.h"
 		
-		#include "factions\gear_civ.h"
 	};
+	
+	
+	
+	
+	
 };

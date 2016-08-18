@@ -5,8 +5,10 @@
 
 // SERVER CHECK
 // Make sure that the script is only run on the server
+// disabled, the purpose of this script has changed from when it was f3's
+// i want to run it from initplayerlocal, reduce server load, w/e
 
-if !(isServer) exitWith {};
+//if !(isServer) exitWith {};
 
 // ====================================================================================
 
@@ -109,7 +111,7 @@ else
 				_geararray = [_x select 1, _unit];
 				if (_unitfaction != "") then {_geararray append [_unitfaction,_unitfaction]};
 				
-				[_geararray, "bg_fnc_assignGear", _unit,false,true] call BIS_fnc_MP;
+				_geararray remoteExecuteCall ["bg_fnc_assigngear", _unit];
 			};
 		} forEach _unitClasses;
 
@@ -120,7 +122,7 @@ else
 				_geararray = [_defaultclass, _unit];
 				if (_unitfaction != "") then {_geararray append [_unitfaction,_unitfaction]};
 			
-				[_geararray, "bg_fnc_assigngear", _unit,false,true] call BIS_fnc_MP;
+				_geararray remoteExecuteCall ["bg_fnc_assigngear", _unit];
 			};
 		};
 		
