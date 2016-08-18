@@ -45,7 +45,12 @@ _faction_aliases =
     ["usarmyucp","rhs_faction_usarmy_wd"],
     ["rus","rhs_faction_msv"],
     ["redarmy","LIB_RKKA"],
-    ["nazi","LIB_WEHRMACHT"] ];
+    ["nazi","LIB_WEHRMACHT"],
+    ["viper","OPF_T_F"],
+    ["synd","IND_C_F"],
+    ["gendar","BLU_GEN_F"]
+    ["ctrg","BLU_CTRG_F"]
+    ["nato_t","BLU_T_F"]  ];
 
 _unit_type = toLower (_this select 0);
 _equip_type = _unit_type;

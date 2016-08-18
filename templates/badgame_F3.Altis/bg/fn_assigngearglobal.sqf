@@ -111,7 +111,7 @@ else
 				_geararray = [_x select 1, _unit];
 				if (_unitfaction != "") then {_geararray append [_unitfaction,_unitfaction]};
 				
-				_geararray remoteExecuteCall ["bg_fnc_assigngear", _unit];
+				[_geararray] remoteExecCall ["bg_fnc_assigngear", _unit];
 			};
 		} forEach _unitClasses;
 
@@ -122,7 +122,7 @@ else
 				_geararray = [_defaultclass, _unit];
 				if (_unitfaction != "") then {_geararray append [_unitfaction,_unitfaction]};
 			
-				_geararray remoteExecuteCall ["bg_fnc_assigngear", _unit];
+				[_geararray] remoteExecCall ["bg_fnc_assigngear", _unit];
 			};
 		};
 		

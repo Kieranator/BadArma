@@ -38,9 +38,15 @@ class bg_loadout_define
 	#include "weapons\weapon_m1carbine.h"
 	#include "weapons\weapon_sks.h"
 	
+	#include "weapons\weapon_ak12.h"
+	#include "weapons\weapon_type115.h"
+	#include "weapons\weapon_spar.h"
+	
 	//smg
 	#include "weapons\weapon_mp18-44.h"
 	#include "weapons\weapon_pps.h"
+	
+	#include "weapons\weapon_protector.h"
 	
 	//shotguns
 	#include "weapons\weapon_m590.h"
@@ -133,6 +139,12 @@ class bg_loadout_define
 		#include "factions\gear_usarmyd_ocp.h"
 		#include "factions\gear_usarmywd_ucp.h"
 		#include "factions\gear_wehrmacht.h"
+		
+		#include "factions\gear_viper.h"
+		#include "factions\gear_synd.h"
+		#include "factions\gear_gendar.h"
+		#include "factions\gear_nato_t.h"
+		#include "factions\gear_ctrg.h"
 				
 			
 		
